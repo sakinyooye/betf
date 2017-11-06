@@ -1,16 +1,12 @@
-var React = require('React');
-var ReactDom = require('react-dom');
-
 var ChallengesList = (props) => {
 	return (
 		<div>
 			<h5> Challenges </h5>
-				<div>
-				
-
-				</div>
-
+				<ul>
+					{this.props.challengesList.map(function(challenge){
+						return <li><ChallengeItem challenge={challenge} onClick={this.handleClick} /></li>
+					})}
+				</ul>
 		</div>
-
 	)
 }
