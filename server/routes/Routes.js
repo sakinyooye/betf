@@ -16,11 +16,14 @@ module.exports = function(app) {
   app.post('/games', game.addAGame);
 
   app.put('/games/:id', game.updateGame)
+  app.delete('/games/:id', game.deleteGame)
+
 
   // routes algorithms: 
   app.get('/algos', algorithms.getAllAlgorithms)
   app.post('/algos', algorithms.addAlgorithm);
 
+  app.get('/algos/:id', algorithms.getSpecifiedAlgorithm)
   app.put('/algos/:id', algorithms.updateSubmissionHistoryOfAlgorithm)
-  
+  app.delete('/algos/:id', algorithms.deleteAlgorithm)
 };
