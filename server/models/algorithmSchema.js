@@ -37,6 +37,8 @@ var algorithmSchema = new Schema({
     contentType: String 
   }, 
 
+  // skeleton for submissionHistory: 
+
   submissionHistory: {
     type: Array, 
   }, 
