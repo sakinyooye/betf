@@ -1,14 +1,24 @@
 'use strict'; // ?
 module.exports = function(app) {
-  var cont = require('../controllers/Controller.js');
- 
-  // app.get('/stores', cont.listAllStores)
-  // app.post('/stores', cont.createNewStore);
+  var user = require('../controllers/userController.js');
+  var game = require('../controllers/gameController.js');
+  var algorithms = require('../controllers/algorithmController.js');
+  // routes for game:
+  app.get('/users', user.getAllUsers)
+  app.post('/users', user.addAUser);
 
- 
-  // app.get('/stores/near/', cont.findNearbyStores) 
+  app.put('/users/:username', user.updateUser)
 
+  // routes for games:
+  app.get('/games', game.getAllGames)
+  app.post('/games', game.addAGame);
 
-  // app.get('/stores/:id', cont.readOneStore)
-  // app.put('/stores/:id', cont.updateStore)
+  app.put('/games/:id', game.updateGame)
+
+  // routes algorithms: 
+  app.get('/games', game.getAllAlgorithms)
+  app.post('/games', game.addAlgorithm);
+
+  app.put('/games/:id', game.updateAlgorithm)
+  
 };
