@@ -30,7 +30,7 @@ exports.getSpecifiedAlgorithm = function(req, res) {
 }
 
 // put '/algos/:id'
-exports.updateSubmissionHistoryOfAlgorithm = async (req, res) => {
+exports.updateSubmissionHistory = async (req, res) => {
 	// this will take in a submission history organized by <username, time, 
 	// success status> and store it in the algo schema. 
 	var oldAlgorithm = await Algo.findById(req.params.id) 

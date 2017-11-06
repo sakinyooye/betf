@@ -9,7 +9,7 @@ module.exports = function(app) {
 
   // routes to handle getting and updating specific user. 
   app.get('/users/:username', user.getSpecificUserData)
-  app.put('/users/:username', user.updateUser)
+  app.put('/users/:username', user.updateUserData)
 
   // routes for games:
   app.get('/games', game.getAllGames)
@@ -24,6 +24,6 @@ module.exports = function(app) {
   app.post('/algos', algorithms.addAlgorithm);
 
   app.get('/algos/:id', algorithms.getSpecifiedAlgorithm)
-  app.put('/algos/:id', algorithms.updateSubmissionHistoryOfAlgorithm)
+  app.put('/algos/:id', algorithms.updateSubmissionHistory)
   app.delete('/algos/:id', algorithms.deleteAlgorithm)
 };
