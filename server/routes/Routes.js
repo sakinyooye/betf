@@ -20,10 +20,17 @@ module.exports = function(app) {
 
 
   // routes algorithms: 
+
   app.get('/algos', algorithms.getAllAlgorithms)
   app.post('/algos', algorithms.addAlgorithm);
+
 
   app.get('/algos/:id', algorithms.getSpecifiedAlgorithm)
   app.put('/algos/:id', algorithms.updateSubmissionHistory)
   app.delete('/algos/:id', algorithms.deleteAlgorithm)
+
+
+
+  
+
 };
