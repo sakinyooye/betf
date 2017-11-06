@@ -18,9 +18,11 @@ module.exports = function(app) {
   app.put('/games/:id', game.updateGame)
 
   // routes algorithms: 
+
   app.get('/algos', algorithms.getAllAlgorithms)
   app.post('/algos', algorithms.addAlgorithm);
 
   app.put('/algos/:id', algorithms.updateSubmissionHistoryOfAlgorithm)
+
   
 };
