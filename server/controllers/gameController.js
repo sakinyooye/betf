@@ -10,3 +10,4 @@ exports.getAllGames = function(req, res) {
     res.send(data); 
   })
 };
+

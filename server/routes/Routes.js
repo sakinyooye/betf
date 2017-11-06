@@ -14,13 +14,13 @@ module.exports = function(app) {
   // routes for games:
   app.get('/games', game.getAllGames)
   app.post('/games', game.addAGame);
-  
+
   app.put('/games/:id', game.updateGame)
 
   // routes algorithms: 
-  app.get('/games', game.getAllAlgorithms)
-  app.post('/games', game.addAlgorithm);
+  app.get('/algos', game.getAllAlgorithms)
+  app.post('/algos', game.addAlgorithm);
 
-  app.put('/games/:id', game.updateAlgorithm)
+  app.put('/algos/:id', game.updateSubmissionHistoryOfAlgorithm)
   
 };
