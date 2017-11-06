@@ -1,6 +1,6 @@
 'use strict'; // right?
 var mongoose = require('mongoose');
-var db = require('../../server.js')
+var db = require('../server.js')
 
 var Schema = mongoose.Schema;
 
@@ -22,16 +22,16 @@ var gameSchema = new Schema({
   },  
   
   pointCost: {
-
+    type: Number, 
   }, 
   // active, completed, 
   status : {
-
+    type : String, 
   }, 
 
   algorithm : {
-
+    type : String
   }, 
 });
 
-mongoose.model('userSchema', userSchema);
+mongoose.model('gameSchema', gameSchema);

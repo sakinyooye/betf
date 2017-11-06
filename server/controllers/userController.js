@@ -1,10 +1,10 @@
 'use strict'; // ?
 var mongoose = require('mongoose');
-var Users = mongoose.model('storeSchema');
+var Users = mongoose.model('userSchema');
 
 
 // 'get /stores' //tested
-exports.listAllUsers = function(req, res) {
+exports.getAllUsers = function(req, res) {
   Users.find({}, (err, data) => {
     if (err) console.error(err); 
     res.send(data); 
@@ -14,10 +14,12 @@ exports.listAllUsers = function(req, res) {
 
 exports.addAUser = function(req, res) {
 
+}; 
 
-
+exports.getSpecificUserData = function(req, res) {
 
 }; 
 
-
-
+exports.updateUser = function(req, res) {
+	
+}

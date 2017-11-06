@@ -34,3 +34,4 @@ exports.updateGame = function(req, res) {
     res.send(game);
   });
 };
+
