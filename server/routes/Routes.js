@@ -18,7 +18,6 @@ module.exports = function(app) {
   app.put('/games/:id', game.updateGame)
   app.delete('/games/:id', game.deleteGame)
 
-
   // routes algorithms: 
 
   app.get('/algos', algorithms.getAllAlgorithms)
@@ -29,8 +28,5 @@ module.exports = function(app) {
   app.put('/algos/:id', algorithms.updateSubmissionHistory)
   app.delete('/algos/:id', algorithms.deleteAlgorithm)
 
-
-
-  
 
 };

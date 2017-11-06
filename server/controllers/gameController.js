@@ -20,6 +20,18 @@ exports.addAGame = function(req, res) {
   });
 };
 
+exports.deleteGame = function(req, res) {
+  Games.remove (
+    {id : req.params.id}, 
+    (err, games) => {
+      if (err) {res.send(err)}
+      else {
+      res.send(`${games} successfully deleted`)
+      }
+    }
+  )
+}
+
 // exports.updateGame = function(req, res) {
 //   Games.find({}, (err, data) => {
 //     if (err) console.error(err);
