@@ -30,24 +30,26 @@ exports.getSpecifiedAlgorithm = function(req, res) {
 }
 
 // put '/algos/:id'
-exports.updateSubmissionHistory = async (req, res) => {
+exports.updateSubmissionHistory = (req, res) => {
 	// this will take in a submission history organized by <username, time, 
 	// success status> and store it in the algo schema. 
-	var oldAlgorithm = await Algo.findById(req.params.id) 
-	var newSubmission = req.body.submissionHistory
-	oldAlgorithm.submissionHistory.push(newSubmission)
-	res.send(oldAlgorithm)
+	// var oldAlgorithm = Algo.findById(req.params.id ) 
+	// var newSubmission = req.body.submissionHistory
+	// oldAlgorithm.submissionHistory.push(newSubmission)
+	// res.send(oldAlgorithm)
 }
 
 // delete '/algos/:id'
 exports.deleteAlgorithm = (req, res) => {
-	Algo.remove(
+	Algo.remove (
 		{id : req.params.id}, 
 		(err, algo) => {
 			if (err) {res.send(err)}
-		}) else {
-		res.send(`${algo} successfully deleted`)
-	}
+			else {
+			res.send(`${algo} successfully deleted`)
+			}
+		}
+	)
 };
 
 
