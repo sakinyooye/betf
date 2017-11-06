@@ -14,7 +14,6 @@ exports.getAllUsers = function(req, res) {
 
 exports.addAUser = function(req, res) {
 
-
 }; 
 
 exports.getSpecificUserData = function(req, res) {
