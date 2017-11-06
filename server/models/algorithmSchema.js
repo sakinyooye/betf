@@ -1,10 +1,10 @@
 'use strict'; // right?
 var mongoose = require('mongoose');
-var db = require('../../server.js')
+var db = require('../server.js')
 
 var Schema = mongoose.Schema;
 
-var algoSchema = new Schema({
+var algorithmSchema = new Schema({
   _id : {
     type: String,  
   }, 
@@ -12,6 +12,10 @@ var algoSchema = new Schema({
   prompt: {
     type: String, 
   }, 
+
+  summary: {
+    type: String, 
+  },
 
   pointValue: {
     type: Number, 
@@ -39,4 +43,4 @@ var algoSchema = new Schema({
 
 });
 
-mongoose.model('algoSchema', algoSchema);
+mongoose.model('algorithmSchema', algorithmSchema);

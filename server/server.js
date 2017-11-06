@@ -21,8 +21,11 @@ port = process.env.PORT || 3000;
 app.listen(port);
 
 // registering the routes and the model must happen before the routes
-Users = require('./api/models/Model.js'); // registering the model.
-routes = require('./api/routes/Routes.js'); //importing route
+algos = require('./models/algorithmSchema.js'); // registering the models.
+games = require('./models/gameSchema.js'); 
+users = require('./models/userSchema.js'); 
+
+routes = require('./routes/Routes.js'); //importing route
 
 // boilerplate from HR sprint. Setting extended to true allows parsing of nested objects. 
 app.use(bodyParser.urlencoded({extended: true}));

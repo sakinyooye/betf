@@ -11,6 +11,7 @@ exports.getAllGames = function(req, res) {
   })
 };
 
+
 exports.addAGame = function(req, res) {
   Games.find({}, (err, data) => {
     if (err) {
@@ -38,3 +39,4 @@ exports.updataGame = function(req, res) {
     res.send(data);
   })
 }
+
