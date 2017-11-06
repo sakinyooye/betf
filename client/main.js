@@ -15,4 +15,4 @@ class Page extends Component {
 
 }
 
-RenderDOM.render(<h1>Main.js</h1>, document.getElementById('mount'))    
+RenderDOM.render(<Page />, document.getElementById('mount'))    
