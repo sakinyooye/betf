@@ -33,7 +33,7 @@ exports.addAGame = function(req, res) {
 //   });
 //  });
 
-exports.updataGame = function(req, res) {
+exports.updateGame = function(req, res) {
   Games.find({}, (err, data) => {
     if (err) console.error(err);
     res.send(data);
