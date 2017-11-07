@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios'
 import Prompt from './Prompt.js'
 import CodeEntryForm from './CodeEntryForm.js'
+import Tests from './Tests'
+import Xonsole from './Xonsole' // because 'Console' isn't a reserved word but it should be.
+import RunXonsoleButton from './RunXonsoleButton'
 import SubmitButton from './SubmitButton.js'
 
 export class GameFrame extends React.Component {
@@ -31,16 +34,21 @@ export class GameFrame extends React.Component {
 		componentWillMount() {
 			// on the first mounting of the game frame, we want to render the game. 
 			this.getPrompt()
-
 		}	
 	}
 
 	render(props){
 		return (
+			<div className="stack">
 			<div>
 				<Timer />
 				<Prompt promptdetails={this.state.prompt} />
 				<CodeEntryForm />
+			</div> 
+			<div className="inline-block-div"> 
+				<Tests /> 
+				<Xonsole />
+				<RunXonsoleButton />  
 				<SubmitButton />
 			</div>
 		)

@@ -20,6 +20,7 @@ class Lander extends React.Component {
             </div>
         )
     }
+
 }
 
 export default Lander
