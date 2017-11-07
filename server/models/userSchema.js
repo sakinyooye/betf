@@ -1,7 +1,9 @@
 'use strict'; // right?
+
 var mongoose = require('mongoose'),
     bcrypt = require(bcrypt),
     SALT_WORK_FACTOR = 10;
+
 //var db = require('../server.js')
 
 var Schema = mongoose.Schema;
