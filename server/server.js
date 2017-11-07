@@ -15,7 +15,7 @@ mongoose.connect(uri);
 var express = require('express'),
 app = express();
 bodyParser = require('body-parser');
-var util = require('./lib/utility');
+//var util = require('./lib/utility');
 var partials = require('express-partials');
 
 var db = mongoose.connection;
