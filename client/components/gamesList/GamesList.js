@@ -1,4 +1,8 @@
-var GamesList = (props) => {
+var React = require('React');
+var axios = require('axios');
+import Game from './Game.js';
+
+export var GamesList = (props) => {
 	return (
 		<div>
 			<h5> Games </h5>
@@ -10,3 +14,5 @@ var GamesList = (props) => {
 		</div>
 	)
 }
+
+export default GamesList; 

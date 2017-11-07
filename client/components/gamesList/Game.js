@@ -1,4 +1,7 @@
-class Game extends React.Component {
+var React = require('React');
+var axios = require('axios');
+
+export class Game extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -7,14 +10,18 @@ class Game extends React.Component {
 	handleClick(){
 		var getRequestData = {
 			url: '/problem',
-			method: 'get',
+			method: 'post',
 			data: {
-				this.props.username,
-				this.props.problemId
+				username: this.props.game.username,
+				algorithmId: this.props.game.algorithmId,
+				participants: this.props.game.participants,
+				leaderboard: this.props.game.leaderboard,
+				status: this.props.game.status,
+				playerScores: this.props.game.playerScores
 			}
 		};
 
-		axios.get(getRequestData).then(function(response){
+		axios(getRequestData).then(function(response){
 			console.log(response);
 
 		}).catch(function(error){
@@ -26,4 +33,6 @@ class Game extends React.Component {
 		<div>{this.props.game.description}</div>
 	};
 }
+
+export default Game; 
 
