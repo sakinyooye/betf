@@ -20,13 +20,14 @@ exports.addAGame = function(req, res) {
   });
 };
 
+
 exports.deleteGame = function(req, res) {
   Games.remove (
     {id : req.params.id}, 
     (err, games) => {
       if (err) {res.send(err)}
       else {
-      res.send(`${games} successfully deleted`)
+      res.send(`${Games} successfully deleted`)
       }
     }
   )
