@@ -1,5 +1,7 @@
 'use strict'; // right?
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    bcrypt = require(bcrypt),
+    SALT_WORK_FACTOR = 10;
 var db = require('../server.js')
 
 var Schema = mongoose.Schema;
@@ -7,7 +9,15 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
   username: {
     type: String, 
+    required: true, 
+    index : {
+      unique: true      
+    }
   }, 
+  password: {
+    type: String,
+    required: true
+  },
 
   totalPoints: {
     type: Number, 
@@ -30,5 +40,7 @@ var userSchema = new Schema({
   }, 
 
 });
+
+
 
 mongoose.model('userSchema', userSchema);
