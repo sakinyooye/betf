@@ -10,27 +10,31 @@ class Lander extends React.Component {
             passWord: "",
             authenSucces: null
         }
-
-
     }
 
+    //handle username submission and updates state
     handleUsername(event) {
         this.setState({
             userName: event.target.value
         })
     }
 
+    //handle password submissoin and updates state
     handlePassword(event) {
         this.setState({
             passWord: event.target.value
         })
     }
 
+    //handle axios request
     handleCheck(event) {
         axios.post('dummy', {
             userName: this.state.userName,
             passWord: this.state.passWord
         })
+        .then((response) => this.setState({
+            authenSucces: response.data
+        }))
     }
     
     render(){
