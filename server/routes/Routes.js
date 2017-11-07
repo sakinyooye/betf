@@ -17,8 +17,7 @@ module.exports = function(app) {
   app.post('/games', game.addAGame);
 
   app.put('/games/:id', game.updateGame)
-  // need to add: 
-  // app.get('games/:id', game.getAGame)
+  app.get('games/:id', game.getAGame)
   app.delete('/games/:id', game.deleteGame)
 
   // routes algorithms: 
