@@ -5,35 +5,32 @@ var db = require('../server.js')
 var Schema = mongoose.Schema;
 
 var algorithmSchema = new Schema({
+  name: {
+    type: String, 
+    requred: true, 
+  }, 
 
   prompt: {
     type: String, 
-  }, 
-
-  pointValue: {
-    type: Number, 
-  }, 
-
-  levelRequired: {
-    type: Number, 
-  }, 
+  },  
 
   seedCode: {
     type: String,
+    default: "\/\/ your code here"
   }, 
 
   // will need to use gridFS for this if the profile
   // pictures are going to be larger than 16mb in size. 
   // need to do more research to see if this will actually work. 
   testingSuite: {
-    data: Buffer, 
-    contentType: String 
+    type: String,  
   }, 
 
   // skeleton for submissionHistory: 
 
   submissionHistory: {
     type: Array, 
+    default: [], 
   }, 
 
 });
