@@ -2463,35 +2463,67 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var Lander = function (_React$Component) {
     _inherits(Lander, _React$Component);
 
     function Lander(props) {
         _classCallCheck(this, Lander);
 
-        return _possibleConstructorReturn(this, (Lander.__proto__ || Object.getPrototypeOf(Lander)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Lander.__proto__ || Object.getPrototypeOf(Lander)).call(this, props));
+
+        _this.state = {
+            userName: "",
+            passWord: "",
+            authenSucces: null
+        };
+
+        return _this;
     }
 
     _createClass(Lander, [{
-        key: "render",
+        key: 'handleUsername',
+        value: function handleUsername(event) {
+            this.setState({
+                userName: event.target.value
+            });
+        }
+    }, {
+        key: 'handlePassword',
+        value: function handlePassword(event) {
+            this.setState({
+                passWord: event.target.value
+            });
+        }
+    }, {
+        key: 'handleCheck',
+        value: function handleCheck(event) {
+            axios.post('dummy', {
+                userName: this.state.userName,
+                passWord: this.state.passWord
+            });
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
+                'div',
                 null,
                 _react2.default.createElement(
-                    "form",
+                    'form',
                     null,
-                    "Username:",
-                    _react2.default.createElement("br", null),
-                    _react2.default.createElement("input", { type: "text", name: "firstname" }),
-                    "Password:",
-                    _react2.default.createElement("br", null),
-                    _react2.default.createElement("input", { type: "text", name: "lastname" }),
-                    _react2.default.createElement("br", null),
+                    'Username:',
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement('input', { type: 'text', value: this.state.userName, onChange: this.handleUsername.bind(this) }),
+                    'Password:',
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement('input', { type: 'text', value: this.state.passWord, onChange: this.handlePassword.bind(this) }),
+                    _react2.default.createElement('br', null),
                     _react2.default.createElement(
-                        "button",
-                        null,
-                        "Submit"
+                        'button',
+                        { onClick: this.handleCheck.bind(this) },
+                        'Submit'
                     )
                 )
             );
