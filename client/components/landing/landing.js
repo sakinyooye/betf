@@ -42,11 +42,14 @@ class Lander extends React.Component {
                     Password:<br/>
                     <input type="text" value={this.state.passWord} onChange={this.handlePassword.bind(this)}/>
                     <br/>
+
                     <button onClick={this.handleCheck.bind(this)}>Submit</button>
+
                 </form>
             </div>
         )
     }
+
 }
 
 export default Lander

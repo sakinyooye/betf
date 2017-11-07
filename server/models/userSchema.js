@@ -1,7 +1,7 @@
 'use strict'; // right?
 
-var mongoose = require('mongoose')
-var db = require('../server.js')
+var mongoose = require('mongoose');
+
 
 var Schema = mongoose.Schema;
 
