@@ -1,4 +1,8 @@
 'use strict'; // right?
+<<<<<<< HEAD
+=======
+
+>>>>>>> psetup
 var mongoose = require('mongoose')
 var db = require('../server.js')
 
