@@ -1,6 +1,7 @@
 import React from 'react';
-import axios from 'axios'
-import Prompt from './Prompt.js'
+import axios from 'axios';
+import Timer from './Timer.js'; 
+import Prompt from './Prompt.js'; 
 import CodeEntryForm from './CodeEntryForm.js'
 import Tests from './Tests'
 import Xonsole from './Xonsole' // because 'Console' isn't a reserved word but it should be.
