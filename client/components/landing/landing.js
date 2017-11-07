@@ -27,9 +27,12 @@ class Lander extends React.Component {
     }
 
     handleCheck(event) {
-        axios.post('dummy', {
+        axios.post('/login', {
             userName: this.state.userName,
             passWord: this.state.passWord
+        })
+        .then(result => {
+            console.log(result)
         })
     }
     
@@ -37,12 +40,10 @@ class Lander extends React.Component {
         return(
             <div>
                 <form>
-                    Username:<br/>
+                    Username:
                     <input type="text" value={this.state.userName} onChange={this.handleUsername.bind(this)}/>
-                    Password:<br/>
+                    Password:
                     <input type="text" value={this.state.passWord} onChange={this.handlePassword.bind(this)}/>
-                    <br/>
-
                     <button onClick={this.handleCheck.bind(this)}>Submit</button>
 
                 </form>

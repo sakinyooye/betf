@@ -3,6 +3,13 @@ module.exports = function(app) {
   var user = require('../controllers/userController.js');
   var game = require('../controllers/gameController.js');
   var algorithms = require('../controllers/algorithmController.js');
+
+  //routes for signing in
+app.post('/login',(req, res) =>{
+  console.log(req.body)
+  res.send({t: 'trying'})
+})
+
   // routes for game:
   app.get('/users', user.getAllUsers)
   app.post('/users', user.addAUser);
