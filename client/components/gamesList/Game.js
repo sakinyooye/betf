@@ -23,7 +23,7 @@ class Game extends React.Component {
 	};
 
 	render(){
-		<div>{this.props.challenge.description}</div>
+		<div>{this.props.game.description}</div>
 	};
 }
 

@@ -21,4 +21,4 @@ class GamesView extends React.Component {
 
 /*requires props to be passed in*/
 
-ReactDOM.render(<Challenges details={XYZ} />, document.getElementById('challenges'));
+ReactDOM.render(<GamesView details={XYZ} />, document.getElementById('games'));
