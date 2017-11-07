@@ -3,10 +3,10 @@ var path = require('path');
 
 
 module.exports = {
-	entry:"./client/main.js",
+	entry:"./public/main.js",
 	output: {
-		path: path.join(__dirname),
-		filename: 'bundle.js'
+		path: path.join(__dirname + '/public'),
+		filename: './bundle.js'
 	}, 
 	module: {
 		loaders: [

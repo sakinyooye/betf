@@ -7,7 +7,7 @@ var algorithmSchema = new Schema({
 
   name: {
     type: String, 
-  }
+  },
 
   prompt: {
     type: String, 
