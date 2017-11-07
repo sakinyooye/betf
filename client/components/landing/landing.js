@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Lander extends Component {
+class Lander extends React.Component {
     constructor(props) {
         super(props);
 
@@ -15,7 +15,7 @@ class Lander extends Component {
                     Password:<br/>
                     <input type="text" name="lastname"/>
                     <br/>
-                    <button onClick="">Submit</button>
+                    <button >Submit</button>
                 </form>
             </div>
         )
