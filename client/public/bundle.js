@@ -2482,12 +2482,9 @@ var Lander = function (_React$Component) {
                     "form",
                     null,
                     "Username:",
-                    _react2.default.createElement("br", null),
                     _react2.default.createElement("input", { type: "text", name: "firstname" }),
                     "Password:",
-                    _react2.default.createElement("br", null),
                     _react2.default.createElement("input", { type: "text", name: "lastname" }),
-                    _react2.default.createElement("br", null),
                     _react2.default.createElement(
                         "button",
                         null,

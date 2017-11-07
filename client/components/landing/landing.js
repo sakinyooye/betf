@@ -10,11 +10,11 @@ class Lander extends React.Component {
         return(
             <div>
                 <form>
-                    Username:<br/>
+                    Username:
                     <input type="text" name="firstname"/>
-                    Password:<br/>
+                    Password:
                     <input type="text" name="lastname"/>
-                    <br/>
+                   
                     <button >Submit</button>
                 </form>
             </div>
