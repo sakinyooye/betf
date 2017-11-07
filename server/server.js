@@ -8,6 +8,10 @@ mongoose.Promise = global.Promise
 // set to 'local' to run on localhost, uri to run on mLab
 mongoose.connect(uri); 
 
+
+
+
+
 var express = require('express'),
 app = express();
 bodyParser = require('body-parser');
