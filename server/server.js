@@ -15,6 +15,7 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
 
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
@@ -22,6 +23,12 @@ db.once('open', function () {
 })
 
 var routes = require('./routes/Routes.js'); //importing route
+
+// registering the routes and the model must happen before the routes
+algos = require('./models/algorithmSchema.js'); // registering the models.
+games = require('./models/gameSchema.js'); 
+users = require('./models/userSchema.js'); 
+
 
 var DB_CREDENTIALS = require('./keys/mongoDBCredentials.js');
 var uri = 'mongodb://' + DB_CREDENTIALS;
@@ -88,6 +95,7 @@ app.use(express.static(__dirname +'/../client/public'))
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false }));
 app.use(cookieParser());
 //handel session
@@ -129,8 +137,7 @@ app.use(passport.session());
 
 //Middleware for sessions
 
-
-
+routes(app); //register the route
 
 app.get('*', (req,res) =>{
 	res.sendFile(__dirname +'/../client/public/index.html')
@@ -139,16 +146,11 @@ app.get('*', (req,res) =>{
 port = process.env.PORT || 3000; 
 app.listen(port);
 
-// registering the routes and the model must happen before the routes
-algos = require('./models/algorithmSchema.js'); // registering the models.
-games = require('./models/gameSchema.js'); 
-users = require('./models/userSchema.js'); 
+
 
 
 // boilerplate from HR sprint. Setting extended to true allows parsing of nested objects. 
-app.use(bodyParser.urlencoded({extended: true}));
 // sets the default parser to .json?
-routes(app); //register the route
 app.get('/', (req,res) =>{
 	res.send({hi: 'Hello'})
 })
