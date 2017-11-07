@@ -3,8 +3,12 @@
 var mongoose = require('mongoose'),
     bcrypt = require(bcrypt),
     SALT_WORK_FACTOR = 10;
+<<<<<<< HEAD
 // var db = require('../server.js')
 
+=======
+//var db = require('../server.js')
+>>>>>>> installed some packages and commented out unnecessary require statements in server/controller files
 
 var Schema = mongoose.Schema;
 
