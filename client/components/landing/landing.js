@@ -37,6 +37,7 @@ class Lander extends React.Component {
         return(
             <div>
                 <form>
+<<<<<<< HEAD
                     Username:<br/>
                     <input type="text" value={this.state.userName} onChange={this.handleUsername.bind(this)}/>
                     Password:<br/>
@@ -45,6 +46,14 @@ class Lander extends React.Component {
 
                     <button onClick={this.handleCheck.bind(this)}>Submit</button>
 
+=======
+                    Username:
+                    <input type="text" name="firstname"/>
+                    Password:
+                    <input type="text" name="lastname"/>
+                   
+                    <button >Submit</button>
+>>>>>>> workingR
                 </form>
             </div>
         )

@@ -2440,100 +2440,10 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-var Lander = function (_React$Component) {
-    _inherits(Lander, _React$Component);
-
-    function Lander(props) {
-        _classCallCheck(this, Lander);
-
-        var _this = _possibleConstructorReturn(this, (Lander.__proto__ || Object.getPrototypeOf(Lander)).call(this, props));
-
-        _this.state = {
-            userName: "",
-            passWord: "",
-            authenSucces: null
-        };
-
-        return _this;
-    }
-
-    _createClass(Lander, [{
-        key: 'handleUsername',
-        value: function handleUsername(event) {
-            this.setState({
-                userName: event.target.value
-            });
-        }
-    }, {
-        key: 'handlePassword',
-        value: function handlePassword(event) {
-            this.setState({
-                passWord: event.target.value
-            });
-        }
-    }, {
-        key: 'handleCheck',
-        value: function handleCheck(event) {
-            axios.post('dummy', {
-                userName: this.state.userName,
-                passWord: this.state.passWord
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'form',
-                    null,
-                    'Username:',
-                    _react2.default.createElement('br', null),
-                    _react2.default.createElement('input', { type: 'text', value: this.state.userName, onChange: this.handleUsername.bind(this) }),
-                    'Password:',
-                    _react2.default.createElement('br', null),
-                    _react2.default.createElement('input', { type: 'text', value: this.state.passWord, onChange: this.handlePassword.bind(this) }),
-                    _react2.default.createElement('br', null),
-                    _react2.default.createElement(
-                        'button',
-                        { onClick: this.handleCheck.bind(this) },
-                        'Submit'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Lander;
-}(_react2.default.Component);
-
-exports.default = Lander;
+throw new Error("Module build failed: SyntaxError: Unexpected token (40:1)\n\n\u001b[0m \u001b[90m 38 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 39 | \u001b[39m                \u001b[33m<\u001b[39m\u001b[33mform\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 40 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 41 | \u001b[39m                    \u001b[33mUsername\u001b[39m\u001b[33m:\u001b[39m\u001b[33m<\u001b[39m\u001b[33mbr\u001b[39m\u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 42 | \u001b[39m                    \u001b[33m<\u001b[39m\u001b[33minput\u001b[39m type\u001b[33m=\u001b[39m\u001b[32m\"text\"\u001b[39m value\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39muserName} onChange\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mhandleUsername\u001b[33m.\u001b[39mbind(\u001b[36mthis\u001b[39m)}\u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 43 | \u001b[39m                    \u001b[33mPassword\u001b[39m\u001b[33m:\u001b[39m\u001b[33m<\u001b[39m\u001b[33mbr\u001b[39m\u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 13 */
