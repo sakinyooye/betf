@@ -2,15 +2,21 @@ mongoose = require('mongoose');
 var DB_CREDENTIALS = require('./keys/mongoDBCredentials.js')
 var uri = 'mongodb://' + DB_CREDENTIALS
 var local = 'mongodb://localhost'
-var passport = require('passport') 
+
 
 mongoose.Promise = global.Promise
 // set to 'local' to run on localhost, uri to run on mLab
 mongoose.connect(uri); 
 
+
+
+
+
 var express = require('express'),
 app = express();
 bodyParser = require('body-parser');
+var util = require('./lib/utility');
+var partials = require('express-partials');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
