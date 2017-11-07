@@ -40,6 +40,8 @@ export class GameFrame extends React.Component {
 	render(props){
 		return (
 			<div className="stack">
+			<div>
+				<Timer />
 				<Prompt promptdetails={this.state.prompt} />
 				<CodeEntryForm />
 			</div> 
