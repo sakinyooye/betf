@@ -4,6 +4,7 @@ var Algo = mongoose.model('algorithmSchema');
 
 // get '/algos'
 exports.getAllAlgorithms = function(req, res) {
+	console.log('run')
   Algo.find({}, (err, allAlgos) => {
     if (err) console.error(err); 
     res.send(allAlgos); 
