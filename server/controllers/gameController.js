@@ -42,9 +42,9 @@ exports.deleteGame = function(req, res) {
 
 
 exports.updateGame = function(req, res) {
-  Games.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, task) {
+  Games.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, games) {
     if (err) {res.send(err)};
-    res.send(game);
+    res.send(games);
   });
 };
 

@@ -1,7 +1,8 @@
 mongoose = require('mongoose');
 var DB_CREDENTIALS = require('./keys/mongoDBCredentials.js')
 var uri = 'mongodb://' + DB_CREDENTIALS
-var local = 'mongodb://localhost' 
+var local = 'mongodb://localhost'
+var passport = require('passport') 
 
 mongoose.Promise = global.Promise
 // set to 'local' to run on localhost, uri to run on mLab

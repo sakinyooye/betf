@@ -28,7 +28,6 @@ exports.getSpecificUserData = function(req, res) {
   });
 }; 
 
-
 // put '/users/:username'
 exports.updateUserData = function(req, res) {
 	// this will be used on the profile page for users to update a user's profile 

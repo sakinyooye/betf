@@ -28,5 +28,4 @@ module.exports = function(app) {
   app.get('/algos/:id', algorithms.getSpecifiedAlgorithm)
   app.put('/algos/:id', algorithms.updateSubmissionHistory)
   app.delete('/algos/:id', algorithms.deleteAlgorithm)
-
 };
