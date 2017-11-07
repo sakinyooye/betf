@@ -4,9 +4,9 @@ var Algo = mongoose.model('algorithmSchema');
 
 // get '/algos'
 exports.getAllAlgorithms = function(req, res) {
-  Algo.find({}, (err, data) => {
+  Algo.find({}, (err, allAlgos) => {
     if (err) console.error(err); 
-    res.send(data); 
+    res.send(allAlgos); 
   })
 }; 
 
@@ -15,7 +15,7 @@ exports.addAlgorithm = function(req, res) {
 	// this will take in a body that has a prompt, summary, pointValue, 
 	// required level and testing suite.
   var newAlgo = new Algo(req.body);
-  newAlgo.save(function(err, task) {
+  newAlgo.save(function(err, newAlgo) {
     if (err) {res.send(err)};
     res.send(newAlgo);
   });
@@ -23,26 +23,27 @@ exports.addAlgorithm = function(req, res) {
 
 // get '/algos/:id'
 exports.getSpecifiedAlgorithm = function(req, res) {
-	Algo.findById(req.params.id, function(err, task) {
+	Algo.findById(req.params.id, function(err, algo) {
     if (err) {res.send(err)};
-    res.send(task);
+    res.send(algo);
   });
 }
 
 // put '/algos/:id'
-exports.updateSubmissionHistory = (req, res) => {
+exports.updateSubmissionHistory = function(req, res) {
 	// this will take in a submission history organized by <username, time, 
 	// success status> and store it in the algo schema. 
-	// var oldAlgorithm = Algo.findById(req.params.id ) 
-	// var newSubmission = req.body.submissionHistory
-	// oldAlgorithm.submissionHistory.push(newSubmission)
-	// res.send(oldAlgorithm)
+	Algo.findById(req.params.id, (err, oldAlgo) => {
+		var newSubmission = req.body.submissionHistory
+		oldAlgo.submissionHistory.push(newSubmission)
+		res.send(oldAlgorithm)
+	}); 
 }
 
 // delete '/algos/:id'
 exports.deleteAlgorithm = (req, res) => {
 	Algo.remove (
-		{id : req.params.id}, 
+		{_id : req.params.id}, 
 		(err, algo) => {
 			if (err) {res.send(err)}
 			else {

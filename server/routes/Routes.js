@@ -10,23 +10,23 @@ module.exports = function(app) {
   // routes to handle getting and updating specific user. 
   app.get('/users/:username', user.getSpecificUserData)
   app.put('/users/:username', user.updateUserData)
+  app.delete('/users/:username', user.deleteUser)
 
   // routes for games:
   app.get('/games', game.getAllGames)
   app.post('/games', game.addAGame);
 
   app.put('/games/:id', game.updateGame)
+  // need to add: 
+  // app.get('games/:id', game.getAGame)
   app.delete('/games/:id', game.deleteGame)
 
   // routes algorithms: 
-
   app.get('/algos', algorithms.getAllAlgorithms)
   app.post('/algos', algorithms.addAlgorithm);
-
 
   app.get('/algos/:id', algorithms.getSpecifiedAlgorithm)
   app.put('/algos/:id', algorithms.updateSubmissionHistory)
   app.delete('/algos/:id', algorithms.deleteAlgorithm)
-
 
 };

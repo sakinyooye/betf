@@ -10,7 +10,7 @@ var gameSchema = new Schema({
   }, 
 
   playerScores: {
-    type: Number, 
+    type: Array, 
   }, 
 
   participants: {
