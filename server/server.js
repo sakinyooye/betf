@@ -35,7 +35,7 @@ mongoose.connect(uri);
 
 app = express();
 
-app.set('views', path.join(__dirname, './components/public'))
+app.use(express.static(__dirname +'/../client/public'))
 
 
 app.use(logger('dev'));
@@ -84,6 +84,9 @@ app.use(passport.session());
 
 
 
+app.get('*', (req,res) =>{
+	res.sendFile(__dirname +'/../client/public/index.html')
+})
 
 port = process.env.PORT || 3000; 
 app.listen(port);
@@ -98,9 +101,6 @@ users = require('./models/userSchema.js');
 app.use(bodyParser.urlencoded({extended: true}));
 // sets the default parser to .json?
 routes(app); //register the route
-app.get('/', (req,res) =>{
-	res.send({hi: 'Hello'})
-})
 
 
 console.log('betf listening on: ' + port);
