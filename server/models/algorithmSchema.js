@@ -1,10 +1,15 @@
 'use strict'; // right?
 var mongoose = require('mongoose');
-//var db = require('../server.js')
+// var db = require('../server.js')
+
 
 var Schema = mongoose.Schema;
 
 var algorithmSchema = new Schema({
+
+  name: {
+    type: String, 
+  }
 
   prompt: {
     type: String, 
@@ -22,12 +27,9 @@ var algorithmSchema = new Schema({
     type: String,
   }, 
 
-  // will need to use gridFS for this if the profile
-  // pictures are going to be larger than 16mb in size. 
-  // need to do more research to see if this will actually work. 
+  // This is going to reference a file system within 
   testingSuite: {
-    data: Buffer, 
-    contentType: String 
+    type: String,
   }, 
 
   // skeleton for submissionHistory: 
