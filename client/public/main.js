@@ -8,9 +8,9 @@ import Lander from '../components/landing/landing.js';
 class Page extends React.Component {
     render(){
         return(
-            <h2>
+            <h6>
             <Lander />
-            </h2>
+            </h6>
         )
     }
 
