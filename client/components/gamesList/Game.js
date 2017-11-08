@@ -21,7 +21,7 @@ export class Game extends React.Component {
 		console.log('this is the value of rendered', this.state.rendered)
 		return (!this.state.rendered) ? 
 		(<div onClick= {this.handleClick.bind(this)} >{this.props.game.name}</div>) :
-		(<GameFrame gameObject = {this.props.game.name}/>)
+		(<GameFrame gameObject = {this.props.game}/>)
 	};
 }
 
