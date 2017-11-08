@@ -5,6 +5,8 @@ import axios from 'axios'
 
 export class CodeEntryForm extends React.Component {
 	constructor(props) {
+		super(props)
+
 
 	}
 

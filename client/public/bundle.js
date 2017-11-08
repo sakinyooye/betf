@@ -1384,6 +1384,12 @@ module.exports = exports['default'];
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(100);
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -1397,7 +1403,7 @@ module.exports = exports['default'];
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(4);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(12);
+  var ReactPropTypesSecret = __webpack_require__(13);
   var loggedTypeFailures = {};
 }
 
@@ -1448,13 +1454,22 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(100);
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(120);
+} else {
+  module.exports = __webpack_require__(121);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1473,7 +1488,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1512,7 +1527,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1609,7 +1624,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1705,21 +1720,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(120);
-} else {
-  module.exports = __webpack_require__(121);
-}
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
@@ -3343,7 +3343,7 @@ var require$$0 = __webpack_require__(6);
 var emptyObject = __webpack_require__(7);
 var invariant = __webpack_require__(4);
 var emptyFunction = __webpack_require__(3);
-var checkPropTypes = __webpack_require__(10);
+var checkPropTypes = __webpack_require__(11);
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -5038,7 +5038,7 @@ module.exports = ReactEntry;
  LICENSE file in the root directory of this source tree.
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1);__webpack_require__(4);var l=__webpack_require__(13),n=__webpack_require__(19),ba=__webpack_require__(20),ca=__webpack_require__(3),da=__webpack_require__(7),ea=__webpack_require__(21),fa=__webpack_require__(22),ha=__webpack_require__(23),ia=__webpack_require__(24);
+var aa=__webpack_require__(1);__webpack_require__(4);var l=__webpack_require__(14),n=__webpack_require__(19),ba=__webpack_require__(20),ca=__webpack_require__(3),da=__webpack_require__(7),ea=__webpack_require__(21),fa=__webpack_require__(22),ha=__webpack_require__(23),ia=__webpack_require__(24);
 function w(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:w("227");
 function ja(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}
 var ka={Namespaces:{html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"},getIntrinsicNamespace:ja,getChildNamespace:function(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ja(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}},la=null,oa={};
@@ -5365,7 +5365,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var react = __webpack_require__(1);
 var invariant = __webpack_require__(4);
-var ExecutionEnvironment = __webpack_require__(13);
+var ExecutionEnvironment = __webpack_require__(14);
 var _assign = __webpack_require__(19);
 var EventListener = __webpack_require__(20);
 var require$$0 = __webpack_require__(6);
@@ -5375,7 +5375,7 @@ var camelizeStyleName = __webpack_require__(26);
 var performanceNow = __webpack_require__(47);
 var propTypes = __webpack_require__(5);
 var emptyObject = __webpack_require__(7);
-var checkPropTypes = __webpack_require__(10);
+var checkPropTypes = __webpack_require__(11);
 var shallowEqual = __webpack_require__(21);
 var containsNode = __webpack_require__(22);
 var focusNode = __webpack_require__(23);
@@ -22695,7 +22695,7 @@ module.exports = performanceNow;
 
 
 
-var ExecutionEnvironment = __webpack_require__(13);
+var ExecutionEnvironment = __webpack_require__(14);
 
 var performance;
 
@@ -22724,8 +22724,8 @@ var invariant = __webpack_require__(4);
 var warning = __webpack_require__(6);
 var assign = __webpack_require__(50);
 
-var ReactPropTypesSecret = __webpack_require__(12);
-var checkPropTypes = __webpack_require__(10);
+var ReactPropTypesSecret = __webpack_require__(13);
+var checkPropTypes = __webpack_require__(11);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -23368,7 +23368,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var emptyFunction = __webpack_require__(3);
 var invariant = __webpack_require__(4);
-var ReactPropTypesSecret = __webpack_require__(12);
+var ReactPropTypesSecret = __webpack_require__(13);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -23446,7 +23446,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var axios = __webpack_require__(11);
+var axios = __webpack_require__(10);
 
 var Lander = function (_React$Component) {
   _inherits(Lander, _React$Component);
@@ -24817,7 +24817,7 @@ exports.placeholder = placeholder;
 exports.cssFor = cssFor;
 exports.attribsFor = attribsFor;
 
-var _objectAssign = __webpack_require__(14);
+var _objectAssign = __webpack_require__(15);
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -25774,7 +25774,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.StyleSheet = StyleSheet;
 
-var _objectAssign = __webpack_require__(14);
+var _objectAssign = __webpack_require__(15);
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -26369,7 +26369,7 @@ exports.fallbacks = fallbacks;
 exports.contentWrap = contentWrap;
 exports.prefixes = prefixes;
 
-var _objectAssign = __webpack_require__(14);
+var _objectAssign = __webpack_require__(15);
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -27463,7 +27463,7 @@ exports.default = Close;
 var utils = __webpack_require__(2);
 var bind = __webpack_require__(32);
 var Axios = __webpack_require__(102);
-var defaults = __webpack_require__(15);
+var defaults = __webpack_require__(16);
 
 /**
  * Create an instance of Axios
@@ -27546,7 +27546,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(15);
+var defaults = __webpack_require__(16);
 var utils = __webpack_require__(2);
 var InterceptorManager = __webpack_require__(111);
 var dispatchRequest = __webpack_require__(112);
@@ -28087,7 +28087,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(2);
 var transformData = __webpack_require__(113);
 var isCancel = __webpack_require__(35);
-var defaults = __webpack_require__(15);
+var defaults = __webpack_require__(16);
 var isAbsoluteURL = __webpack_require__(114);
 var combineURLs = __webpack_require__(115);
 
@@ -28367,8 +28367,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = __webpack_require__(16);
-var axios = __webpack_require__(11);
+var React = __webpack_require__(12);
+var axios = __webpack_require__(10);
 
 var GamesView = exports.GamesView = function (_React$Component) {
 	_inherits(GamesView, _React$Component);
@@ -28444,8 +28444,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = __webpack_require__(16);
-var axios = __webpack_require__(11);
+var React = __webpack_require__(12);
+var axios = __webpack_require__(10);
 
 var UserInfo = exports.UserInfo = function (_React$Component) {
 	_inherits(UserInfo, _React$Component);
@@ -28548,7 +28548,7 @@ var require$$0 = __webpack_require__(6);
 var emptyObject = __webpack_require__(7);
 var invariant = __webpack_require__(4);
 var emptyFunction = __webpack_require__(3);
-var checkPropTypes = __webpack_require__(10);
+var checkPropTypes = __webpack_require__(11);
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -30254,8 +30254,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = __webpack_require__(16);
-var axios = __webpack_require__(11);
+var React = __webpack_require__(12);
+var axios = __webpack_require__(10);
 
 var GamesList = exports.GamesList = function (_React$Component) {
 	_inherits(GamesList, _React$Component);
@@ -30333,8 +30333,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = __webpack_require__(16);
-var axios = __webpack_require__(11);
+var React = __webpack_require__(12);
+var axios = __webpack_require__(10);
 
 var Game = exports.Game = function (_React$Component) {
 	_inherits(Game, _React$Component);
@@ -30361,7 +30361,8 @@ var Game = exports.Game = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return this.state.rendered ? React.createElement(
+			console.log('this is the value of rendered', this.state.rendered);
+			return !this.state.rendered ? React.createElement(
 				'div',
 				{ onClick: this.handleClick.bind(this) },
 				this.props.game.name
@@ -30376,9 +30377,250 @@ exports.default = Game;
 
 /***/ }),
 /* 124 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (41:15)\n\n\u001b[0m \u001b[90m 39 | \u001b[39m\n \u001b[90m 40 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 | \u001b[39m  getAlgorithm \u001b[33m=\u001b[39m async (algoId) \u001b[33m=>\u001b[39m {\n \u001b[90m    | \u001b[39m               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 | \u001b[39m\t\t\u001b[90m// need to add a process.env variable here. \u001b[39m\n \u001b[90m 43 | \u001b[39m  \tlet local \u001b[33m=\u001b[39m \u001b[32m'http://localhost:3000'\u001b[39m\n \u001b[90m 44 | \u001b[39m\t  let extension \u001b[33m=\u001b[39m \u001b[32m'/algos/'\u001b[39m \u001b[33m+\u001b[39m algoId\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.GameFrame = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(10);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _Prompt = __webpack_require__(125);
+
+var _Prompt2 = _interopRequireDefault(_Prompt);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // the following commented out components need to be uncommented once their components are rendered. 
+// When you have finsihed a component: 
+// uncomment the import
+// uncomment the component on the render screen. 
+
+// import Timer from './Timer.js'; // this needs a file. 
+
+
+// import CodeEntryForm from './CodeEntryForm.js'
+// import Tests from './Tests' // this needs a file
+// import Xonsole from './Xonsole' // because 'Console' isn't a reserved word but it should be.
+// import RunXonsoleButton from './RunXonsoleButton' // this needs a file
+// import SubmitButton from './SubmitButton.js' // this needs a file
+
+// this receives the following props from the 'GamesList': 
+// game object with: 
+// algorithm: _id
+// participants
+// leaderboard
+// status
+// playerScores
+
+var GameFrame = exports.GameFrame = function (_React$Component) {
+	_inherits(GameFrame, _React$Component);
+
+	function GameFrame(props) {
+		_classCallCheck(this, GameFrame);
+
+		var _this = _possibleConstructorReturn(this, (GameFrame.__proto__ || Object.getPrototypeOf(GameFrame)).call(this, props));
+
+		_this.state = {
+			algorithm: null,
+			prompt: null,
+			seedCode: null,
+			tests: null,
+			isSubmitted: false,
+			isXonsoleRun: false,
+			isTimerRunning: false
+		};
+
+		_this.algorithmID = _this.props.gameObject.algorithmID;
+		_this.getAlgorithm = _this.getAlgorithm.bind(_this);
+		_this.getSeedCode = _this.getSeedCode.bind(_this);
+		_this.getTests = _this.getTests.bind(_this);
+		_this.toggleSubmitStatus = _this.toggleSubmitStatus.bind(_this);
+		_this.toggleRunXonsoleStatus = _this.toggleRunXonsoleStatus.bind(_this);
+
+		return _this;
+	}
+
+	_createClass(GameFrame, [{
+		key: 'getAlgorithm',
+		value: function getAlgorithm(algoId) {
+			var _this2 = this;
+
+			for (var _len = arguments.length, callback = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+				callback[_key - 1] = arguments[_key];
+			}
+
+			// need to add a process.env variable here. 
+			var extension = '/algos/' + algoId;
+			var algorithm = _axios2.default.get(extension) // TODO: change from local to process.env on deployment.
+			.then(function (algorithm) {
+				_this2.setState({ algorithm: algorithm });
+				// run the response in a callback so that other functions can use it. 
+				if (callback) {
+					callback(algorithm);
+				};
+			});
+		}
+
+		// these could be refactored into one function, but I think it is more readable to have them seperate. 
+
+	}, {
+		key: 'getPrompt',
+		value: function getPrompt(algoId) {
+			var _this3 = this;
+
+			this.getAlgorithm(algoId, function (algo) {
+				var prompt = algo.prompt;
+				_this3.setState({ prompt: prompt });
+			});
+		}
+	}, {
+		key: 'getSeedCode',
+		value: function getSeedCode(algoId) {
+			var _this4 = this;
+
+			this.getAlgorithm(algoId, function (algo) {
+				var seedCode = algo.seedCode;
+				_this4.setState({ seedCode: seedCode });
+			});
+		}
+	}, {
+		key: 'getTests',
+		value: function getTests(algoId) {
+			var _this5 = this;
+
+			this.getAlgorithm(algoId, function (algo) {
+				var tests = algo.tests;
+				_this5.setState({ tests: tests });
+			});
+		}
+
+		// both of these functions handle the pressing of the buttons. When they are pressed, they change the state
+		// of the GameFrame, triggering a rerendering and passing down a true value to their respective children. 
+		// after the child acts on the status change, it will call the function again, setting the state back to false. 
+		// These must be ES5 functions because arrow functions will result in the this binding getting messed up. 
+
+	}, {
+		key: 'toggleSubmitStatus',
+		value: function toggleSubmitStatus() {
+			this.setState({ isSubmitted: !this.state.isSubmitted });
+		}
+	}, {
+		key: 'toggleRunXonsoleStatus',
+		value: function toggleRunXonsoleStatus() {
+			this.setStatt({ isXonsoleRun: !this.state.isXonsoleRun });
+		}
+	}, {
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			// on the first mounting of the game frame, we want to render the game. 
+			this.getAlgorithm(this.algorithmID);
+			this.getPrompt(this.algorithmID);
+			this.getSeedCode(this.algorithmID);
+			this.getTests(this.algorithmID);
+		}
+	}, {
+		key: 'render',
+		value: function render(props) {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'stack' },
+				_react2.default.createElement(
+					'div',
+					null,
+					' This is where all of the components will go.',
+					_react2.default.createElement(_Prompt2.default, { promptdetails: this.state.prompt })
+				),
+				_react2.default.createElement('div', { className: 'inline-block-div' })
+			);
+		}
+	}]);
+
+	return GameFrame;
+}(_react2.default.Component);
+
+exports.default = GameFrame;
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Prompt = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(10);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //Prompt.js
+
+
+var Prompt = exports.Prompt = function (_React$Component) {
+	_inherits(Prompt, _React$Component);
+
+	function Prompt(props) {
+		_classCallCheck(this, Prompt);
+
+		return _possibleConstructorReturn(this, (Prompt.__proto__ || Object.getPrototypeOf(Prompt)).call(this, props));
+	}
+
+	_createClass(Prompt, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'h1',
+					null,
+					' Prompt '
+				),
+				_react2.default.createElement(
+					'div',
+					null,
+					this.props.promptdetails
+				)
+			);
+		}
+	}]);
+
+	return Prompt;
+}(_react2.default.Component);
+
+exports.default = Prompt;
 
 /***/ })
 /******/ ]);
