@@ -8,30 +8,29 @@ import Lander from '../components/landing/landing.js';
 //Page component will be rendered to the html file
 class Page extends React.Component {
 
-constructor(props) {
-	super(props);
-	this.state = {
-    user : null, 
- 	}
- 	this.changeLoggedInStatus = (username) => {
- 		this.setState({username : username})
- 	}
+  constructor(props) {
+  	super(props);
+  	this.state = {
+      user : null, 
+   	}
+   	this.changeLoggedInStatus = (username) => {
+   		this.setState({username})
+   	}
 
 
     render(){
-      if (this.state.userLoggedIn === null) {return(
+      return (this.state.userLoggedIn === null) ? (
           <h6>
           	<Lander changeLogInFunction = {this.changeLoggedInStatus} />
           </h6>
-        )
-    	}
-  	} else {return(
+        ) : (
           <div>
           	<GamesView user = {this.state.user} />
           </div>
         )
-    	}
+    }
 
+  }
 }
 
 ReactDOM.render(<Page />, document.getElementById('mount'))    

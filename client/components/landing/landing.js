@@ -27,7 +27,7 @@ class Lander extends React.Component {
     }
 
     //handle axios request
-    handleCheck(event) {
+    handleCheck() {
         axios.post('/login', {
             userName: this.state.userName,
             passWord: this.state.passWord
