@@ -19,7 +19,7 @@ export class GamesList extends React.Component{
 				<h5> Games </h5>
 					<ul>
 						{this.props.gameslist.map(function(game){
-							return <li> {game.name} <Game game={game} /></li>
+							return <li> <Game game={game} /></li>
 						})}
 					</ul>
 			</div>

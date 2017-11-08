@@ -20,8 +20,10 @@ exports.addAUser = function(req, res) {
 	// this will take in a body that has a username and password. 
   // need to add authntication to this.
 
+  // check to see if the username 
+
   var newUser = new Users(req.body);
-  // newUser.password = 
+  newUser.set('username', 'seamusTest')
 
 
   console.log('username', newUser.username)
@@ -50,6 +52,7 @@ exports.authUser = function(req, res) {
       } else if (match.length === 1) {
         console.log('there was a match!')
         match = JSON.parse(JSON.stringify(match[0])); 
+        // do the bcrypt password check. 
         match.authenStatus = true; 
         console.log('match', match)
         res.send(match)
