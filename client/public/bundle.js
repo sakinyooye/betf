@@ -30636,7 +30636,7 @@ exports.default = Prompt;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 exports.CodeEntryForm = undefined;
 
@@ -30650,6 +30650,18 @@ var _axios = __webpack_require__(10);
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _brace = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"brace\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _brace2 = _interopRequireDefault(_brace);
+
+var _reactAce = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-ace\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _reactAce2 = _interopRequireDefault(_reactAce);
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"brace/mode/javascript\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"brace/theme/github\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30661,22 +30673,37 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var CodeEntryForm = exports.CodeEntryForm = function (_React$Component) {
-	_inherits(CodeEntryForm, _React$Component);
+  _inherits(CodeEntryForm, _React$Component);
 
-	function CodeEntryForm(props) {
-		_classCallCheck(this, CodeEntryForm);
+  function CodeEntryForm(props) {
+    _classCallCheck(this, CodeEntryForm);
 
-		return _possibleConstructorReturn(this, (CodeEntryForm.__proto__ || Object.getPrototypeOf(CodeEntryForm)).call(this, props));
-	}
+    return _possibleConstructorReturn(this, (CodeEntryForm.__proto__ || Object.getPrototypeOf(CodeEntryForm)).call(this, props));
+  }
 
-	_createClass(CodeEntryForm, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement('div', null);
-		}
-	}]);
+  _createClass(CodeEntryForm, [{
+    key: 'onChange',
+    value: function onChange(newValue) {
+      console.log('change', newValue);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_reactAce2.default, {
+          mode: 'javascript',
+          theme: 'github',
+          onChange: this.onChange.bind(this),
+          name: 'UNIQUE_ID_OF_DIV',
+          editorProps: { $blockScrolling: true }
+        })
+      );
+    }
+  }]);
 
-	return CodeEntryForm;
+  return CodeEntryForm;
 }(_react2.default.Component);
 
 exports.default = CodeEntryForm;
