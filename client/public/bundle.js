@@ -23052,10 +23052,7 @@ var UserInfo = exports.UserInfo = function (_React$Component) {
 	function UserInfo(props) {
 		_classCallCheck(this, UserInfo);
 
-		var _this = _possibleConstructorReturn(this, (UserInfo.__proto__ || Object.getPrototypeOf(UserInfo)).call(this, props));
-
-		console.log(_this.props.username);
-		return _this;
+		return _possibleConstructorReturn(this, (UserInfo.__proto__ || Object.getPrototypeOf(UserInfo)).call(this, props));
 	}
 
 	_createClass(UserInfo, [{
