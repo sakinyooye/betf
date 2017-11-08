@@ -7,7 +7,7 @@ import React from 'react';
 import axios from 'axios';
 // import Timer from './Timer.js'; // this needs a file. 
 import Prompt from './Prompt.js'; 
-// import CodeEntryForm from './CodeEntryForm.js'
+import CodeEntryForm from './CodeEntryForm.js'
 // import Tests from './Tests' // this needs a file
 // import Xonsole from './Xonsole' // because 'Console' isn't a reserved word but it should be.
 // import RunXonsoleButton from './RunXonsoleButton' // this needs a file
@@ -45,7 +45,7 @@ export class GameFrame extends React.Component {
 
 
   getAlgorithm(algoId, ...callback) {
-		// need to add a process.env variable here. 
+		// need to add a process.env variable here.
 	  let extension = '/algos/' + algoId
 	  let algorithm = axios.get(extension) // TODO: change from local to process.env on deployment.
 	  .then((algorithm) => {
@@ -85,11 +85,12 @@ export class GameFrame extends React.Component {
 		this.setState({isSubmitted : !this.state.isSubmitted})
 	}
 	toggleRunXonsoleStatus() {
-		this.setStatt({isXonsoleRun : !this.state.isXonsoleRun})
+		this.setState({isXonsoleRun : !this.state.isXonsoleRun})
 	}
 
 	componentWillMount() {
 		// on the first mounting of the game frame, we want to render the game. 
+		console.log('the algorithmId: ', this.algorithmID)
 		this.getAlgorithm(this.algorithmID)
 		this.getPrompt(this.algorithmID)
 		this.getSeedCode(this.algorithmID)
@@ -97,18 +98,16 @@ export class GameFrame extends React.Component {
 	}	
 
 	render(props){
+		console.log("this is what is getting sent", this.state.prompt)
 		return (
 			<div className="stack">
 				<div> This is where all of the components will go. 
 					<Prompt promptdetails={this.state.prompt} />
-
-
+					<CodeEntryForm seedCode = {this.state.seedCode} /> 
 				</div> 
 
 				<div className="inline-block-div"> 
-									{/*<Timer />
-					
-					<CodeEntryForm seedCode = {this.state.seedCode} /> 
+					{/*<Timer />
 					<Tests tests={this.state.tests}/> 
 					<Xonsole toggleRunXonsoleStatus={this.toggleRunXonsoleStatus} isXonsoleRun={this.state.isXonsoleRun}/>
 					<RunXonsoleButton toggleRunXonsoleStatus={this.toggleRunXonsoleStatus}/>  

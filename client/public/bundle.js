@@ -30366,7 +30366,7 @@ var Game = exports.Game = function (_React$Component) {
 				'div',
 				{ onClick: this.handleClick.bind(this) },
 				this.props.game.name
-			) : React.createElement(_GameFrame2.default, { gameObject: this.props.game.name });
+			) : React.createElement(_GameFrame2.default, { gameObject: this.props.game });
 		}
 	}]);
 
@@ -30401,6 +30401,10 @@ var _Prompt = __webpack_require__(125);
 
 var _Prompt2 = _interopRequireDefault(_Prompt);
 
+var _CodeEntryForm = __webpack_require__(126);
+
+var _CodeEntryForm2 = _interopRequireDefault(_CodeEntryForm);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30415,7 +30419,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import Timer from './Timer.js'; // this needs a file. 
 
 
-// import CodeEntryForm from './CodeEntryForm.js'
 // import Tests from './Tests' // this needs a file
 // import Xonsole from './Xonsole' // because 'Console' isn't a reserved word but it should be.
 // import RunXonsoleButton from './RunXonsoleButton' // this needs a file
@@ -30466,7 +30469,7 @@ var GameFrame = exports.GameFrame = function (_React$Component) {
 				callback[_key - 1] = arguments[_key];
 			}
 
-			// need to add a process.env variable here. 
+			// need to add a process.env variable here.
 			var extension = '/algos/' + algoId;
 			var algorithm = _axios2.default.get(extension) // TODO: change from local to process.env on deployment.
 			.then(function (algorithm) {
@@ -30524,12 +30527,13 @@ var GameFrame = exports.GameFrame = function (_React$Component) {
 	}, {
 		key: 'toggleRunXonsoleStatus',
 		value: function toggleRunXonsoleStatus() {
-			this.setStatt({ isXonsoleRun: !this.state.isXonsoleRun });
+			this.setState({ isXonsoleRun: !this.state.isXonsoleRun });
 		}
 	}, {
 		key: 'componentWillMount',
 		value: function componentWillMount() {
 			// on the first mounting of the game frame, we want to render the game. 
+			console.log('the algorithmId: ', this.algorithmID);
 			this.getAlgorithm(this.algorithmID);
 			this.getPrompt(this.algorithmID);
 			this.getSeedCode(this.algorithmID);
@@ -30538,6 +30542,7 @@ var GameFrame = exports.GameFrame = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render(props) {
+			console.log("this is what is getting sent", this.state.prompt);
 			return _react2.default.createElement(
 				'div',
 				{ className: 'stack' },
@@ -30545,7 +30550,8 @@ var GameFrame = exports.GameFrame = function (_React$Component) {
 					'div',
 					null,
 					' This is where all of the components will go.',
-					_react2.default.createElement(_Prompt2.default, { promptdetails: this.state.prompt })
+					_react2.default.createElement(_Prompt2.default, { promptdetails: this.state.prompt }),
+					_react2.default.createElement(_CodeEntryForm2.default, { seedCode: this.state.seedCode })
 				),
 				_react2.default.createElement('div', { className: 'inline-block-div' })
 			);
@@ -30621,6 +30627,59 @@ var Prompt = exports.Prompt = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Prompt;
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.CodeEntryForm = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(10);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //codeentryform.js
+// this file will just house the code entry. It takes the starterCode from app.js
+
+
+var CodeEntryForm = exports.CodeEntryForm = function (_React$Component) {
+	_inherits(CodeEntryForm, _React$Component);
+
+	function CodeEntryForm(props) {
+		_classCallCheck(this, CodeEntryForm);
+
+		return _possibleConstructorReturn(this, (CodeEntryForm.__proto__ || Object.getPrototypeOf(CodeEntryForm)).call(this, props));
+	}
+
+	_createClass(CodeEntryForm, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement('div', null);
+		}
+	}]);
+
+	return CodeEntryForm;
+}(_react2.default.Component);
+
+exports.default = CodeEntryForm;
 
 /***/ })
 /******/ ]);
