@@ -11,29 +11,39 @@ export class GamesView extends React.Component {
 		this.state = {
 			points: 1000,
 			level: 2,
-			// games: undefined
+			games: [ ]
 		};
 	};
 
-	componentDidMount(){
-		var host = 'localhost:3000';
-		axios.get(localhost + '/games')
+	/*getData(){
+		axios.get('/algos')
 		.then(function(result){
-			this.state.games = result;
-		})
-		.catch((err) => {console.error(err)} );
+			 //this.setState({games: result.data});
+			console.log(JSON.stringify(result.data) + "this is result");
+		}.bind(this))
+		.catch((err) => {
+			console.log("There's an ERROR with algos get request");
+			throw(err)});
+	}*/
+	
+	componentDidMount(){
+		axios.get('/games')
+		.then(function(result){
+			this.setState({games:result.data});
+			console.log('state', this.state.games)
+			// console.log(JSON.stringify(result.data) + "this is result");
+		}.bind(this))
+		.catch((err) => {
+			console.log("There's an ERROR with algos get request");
+			throw(err)});
 	};
 
 	render(){
+		//{this.getData();}
 		return (
 			<div>
-				{ /*
-				 <UserInfo username={props.username} points={this.state.points} level={this.state.level}/>
-				<GamesList gameslist={this.state.games} username={props.username}/>	
-				*/}
-				<h1> hello world </h1> 
-				
-
+				<UserInfo username={this.props.username} points={this.state.points} level={this.state.level}/>
+				<GamesList gameslist={this.state.games} username={this.props.username}/>
 			</div>
 		)
 	}

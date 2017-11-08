@@ -24,11 +24,14 @@ class Lander extends React.Component {
     this.handlePassword = this.handlePassword.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
 
+
     // these are for the log-in
     this.handleUsernameToCheck = this.handleUsernameToCheck.bind(this)
     this.handlePasswordToCheck = this.handlePasswordToCheck.bind(this)
     this.handleCheck = this.handleCheck.bind(this)
   }
+
+
 
 // THESE ARE JUST FOR THE SIGN UP. 
   //handle username submission and updates state

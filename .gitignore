@@ -6,3 +6,4 @@ node_modules/
 bower_components/
 package-lock.json
 .DS_Store
+bundle.js
