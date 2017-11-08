@@ -11,24 +11,28 @@ export class GamesView extends React.Component {
 		this.state = {
 			points: 1000,
 			level: 2,
-			games: undefined;
+			// games: undefined
 		};
 	};
 
 	componentDidMount(){
-		var host = localhost:3000;
+		var host = 'localhost:3000';
 		axios.get(localhost + '/games')
 		.then(function(result){
 			this.state.games = result;
 		})
-		.catch((err) => throw err);
+		.catch((err) => {console.error(err)} );
 	};
 
 	render(){
 		return (
 			<div>
-				<UserInfo username={props.username} points={this.state.points} level={this.state.level}/>
-				<GamesList gameslist={this.state.games} username={props.username}/>
+				{ /*
+				 <UserInfo username={props.username} points={this.state.points} level={this.state.level}/>
+				<GamesList gameslist={this.state.games} username={props.username}/>	
+				*/}
+				<h1> hello world </h1> 
+				
 
 			</div>
 		)

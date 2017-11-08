@@ -11,7 +11,7 @@ export class UserInfo extends React.Component {
 			<div>
 				<div> Username: {this.props.username} </div>
 				<div> Points: {this.props.points} </div>
-				<div> Level: {this.props.level} <div>
+				<div> Level: {this.props.level} </div>
 			</div>
 		)
 	}
