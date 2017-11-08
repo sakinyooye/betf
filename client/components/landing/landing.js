@@ -41,8 +41,8 @@ class Lander extends React.Component {
             // rerender. 
             
             this.props.setUser(this.state.userName)
-            this.setState({
-                authenSucces: response})
+            // this.setState({
+            //     authenSucces: response})
             })
         .catch(function (error) {
             this.props.setUser('no')
