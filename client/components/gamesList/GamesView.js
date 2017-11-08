@@ -11,7 +11,7 @@ export class GamesView extends React.Component {
 		this.state = {
 			points: 1000,
 			level: 2,
-			games: [ ]
+			games: [ ], 
 		};
 	};
 
@@ -30,16 +30,12 @@ export class GamesView extends React.Component {
 		axios.get('/games')
 		.then(function(result){
 			this.setState({games:result.data});
-			console.log('state', this.state.games)
-			// console.log(JSON.stringify(result.data) + "this is result");
 		}.bind(this))
 		.catch((err) => {
-			console.log("There's an ERROR with algos get request");
 			throw(err)});
 	};
 
 	render(){
-		//{this.getData();}
 		return (
 			<div>
 				<UserInfo username={this.props.username} points={this.state.points} level={this.state.level}/>

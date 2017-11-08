@@ -125,7 +125,7 @@ class Lander extends React.Component {
 
           <div>
             <h1> Log in </h1>
-            <form className = "">
+            <form>
               Username:
               <input type="text" value={this.state.usernameToCheck} onChange={this.handleUsernameToCheck}/>
               Password:
