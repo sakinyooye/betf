@@ -1,12 +1,18 @@
+// the following commented out components need to be uncommented once their components are rendered. 
+		// When you have finsihed a component: 
+			// uncomment the import
+			// uncomment the component on the render screen. 
+
 import React from 'react';
 import axios from 'axios';
-import Timer from './Timer.js'; 
+// import Timer from './Timer.js'; // this needs a file. 
 import Prompt from './Prompt.js'; 
-import CodeEntryForm from './CodeEntryForm.js'
-import Tests from './Tests' // this needs a file
-import Xonsole from './Xonsole' // because 'Console' isn't a reserved word but it should be.
-import RunXonsoleButton from './RunXonsoleButton' // this needs a file
-import SubmitButton from './SubmitButton.js' // this needs a file
+// import CodeEntryForm from './CodeEntryForm.js'
+// import Tests from './Tests' // this needs a file
+// import Xonsole from './Xonsole' // because 'Console' isn't a reserved word but it should be.
+// import RunXonsoleButton from './RunXonsoleButton' // this needs a file
+// import SubmitButton from './SubmitButton.js' // this needs a file
+
 // this receives the following props from the 'GamesList': 
 			// game object with: 
 				// algorithm: _id
@@ -38,43 +44,47 @@ export class GameFrame extends React.Component {
 	}
 
 
-  getAlgorithm = async (algoId) => {
+  getAlgorithm(algoId, ...callback) {
 		// need to add a process.env variable here. 
-  	let local = 'http://localhost:3000'
 	  let extension = '/algos/' + algoId
-	  let algorithm = axios.get(local + extension) // TODO: change from local to process.env on deployment.
-	  this.setState({algorithm}) 
-	  // return this so that it can be reused in getPrompt. 
-	  return algorithm; 
+	  let algorithm = axios.get(extension) // TODO: change from local to process.env on deployment.
+	  .then((algorithm) => {
+	  	this.setState({algorithm});
+	  	// run the response in a callback so that other functions can use it. 
+	  	if (callback) {callback(algorithm)}; 
+    })
   }
 
   // these could be refactored into one function, but I think it is more readable to have them seperate. 
-	getPrompt = async (algoId) => {
-			var retrievedAlgo = await this.getAlgorithm(algoId)
-			var prompt = retrievedAlgo.prompt
-		this.setState({prompt})
+	getPrompt(algoId) {
+		this.getAlgorithm(algoId, (algo) => {
+			var prompt = algo.prompt
+			this.setState({prompt})
+		})
 	}
 
-	getSeedCode = async (algoId) => {
-		var retrievedAlgo = await this.getAlgorithm(algoId)
-		var seedCode = retrievedAlgo.seedCode; 
-		this.setState({seedCode})
+	getSeedCode(algoId) {
+		this.getAlgorithm(algoId, (algo) => {
+			var seedCode = algo.seedCode
+			this.setState({seedCode})
+		})
 	}
 
-	getTests = async (algoId) => {
-		var retrievedAlgo = await this.getAlgorithm(algoId)
-		var tests = retrievedAlgo.tests; 
-		this.setState({tests})
+	getTests(algoId) {
+		this.getAlgorithm(algoId, (algo) => {
+			var tests = algo.tests
+			this.setState({tests})
+		})
 	}
 
 	// both of these functions handle the pressing of the buttons. When they are pressed, they change the state
 	// of the GameFrame, triggering a rerendering and passing down a true value to their respective children. 
 	// after the child acts on the status change, it will call the function again, setting the state back to false. 
 	// These must be ES5 functions because arrow functions will result in the this binding getting messed up. 
-	toggleSubmitStatus = function() {
+	toggleSubmitStatus() {
 		this.setState({isSubmitted : !this.state.isSubmitted})
 	}
-	toggleRunXonsoleStatus = function() {
+	toggleRunXonsoleStatus() {
 		this.setStatt({isXonsoleRun : !this.state.isXonsoleRun})
 	}
 
@@ -89,17 +99,23 @@ export class GameFrame extends React.Component {
 	render(props){
 		return (
 			<div className="stack">
-			<div>
-				<Timer />
-				<Prompt promptdetails={this.state.prompt} />
-				<CodeEntryForm seedCode = {this.state.seedCode} />
+				<div> This is where all of the components will go. 
+					<Prompt promptdetails={this.state.prompt} />
+
+
+				</div> 
+
+				<div className="inline-block-div"> 
+									{/*<Timer />
+					
+					<CodeEntryForm seedCode = {this.state.seedCode} /> 
+					<Tests tests={this.state.tests}/> 
+					<Xonsole toggleRunXonsoleStatus={this.toggleRunXonsoleStatus} isXonsoleRun={this.state.isXonsoleRun}/>
+					<RunXonsoleButton toggleRunXonsoleStatus={this.toggleRunXonsoleStatus}/>  
+					<SubmitButton toggleSubmitStatus={this.toggleSubmitStatus} isSubmitted={this.state.isSubmitted} isTimerRunning = {this.state.isTimerRunning}/>
+				*/}
+				</div>
 			</div> 
-			<div className="inline-block-div"> 
-				<Tests tests={this.state.tests}/> 
-				<Xonsole toggleRunXonsoleStatus={this.toggleRunXonsoleStatus} isXonsoleRun={this.state.isXonsoleRun}/>
-				<RunXonsoleButton toggleRunXonsoleStatus={this.toggleRunXonsoleStatus}/>  
-				<SubmitButton toggleSubmitStatus={this.toggleSubmitStatus} isSubmitted={this.state.isSubmitted} isTimerRunning = {this.state.isTimerRunning}/>
-			</div>
 		)
 	}
 }
