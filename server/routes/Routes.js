@@ -6,13 +6,15 @@ module.exports = function(app) {
 
   //routes for signing in
   app.post('/login',(req, res) =>{
-    console.log('this is req.body in the routes file', req.body)
+    console.log('this will only run if there are other login routes', req.body)
     res.send({t: 'true'})
 })
 
   // routes for game:
   app.get('/users', user.getAllUsers)
-  app.post('/users', user.addAUser);
+  app.post('/users', user.addAUser); // sign-up
+  app.post('/users/auth', user.authUser) // log-in
+
 
   // routes to handle getting and updating specific user. 
   app.get('/users/:username', user.getSpecificUserData)

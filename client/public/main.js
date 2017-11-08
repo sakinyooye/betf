@@ -11,7 +11,6 @@ class Page extends React.Component {
     this.state = {
       user : null, 
 	}; 
-	///
 	this.setUser = this.setUser.bind(this)
 }
  	setUser(user) {
