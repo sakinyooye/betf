@@ -30,6 +30,7 @@ class Lander extends React.Component {
     }
 
     //handle axios request
+
     handleCheck(event) {
         event.preventDefault(); 
         axios.post('/login', {

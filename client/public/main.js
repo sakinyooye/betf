@@ -5,6 +5,7 @@ import GamesView from '../components/gamesList/GamesView.js'
 //all components will be attached to this Page component. 
 //Page component will be rendered to the html file
 class Page extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +20,7 @@ class Page extends React.Component {
 }
     render(props) {
       return (this.state.user === null && this.state.user !== 'no') ? (
+
           <h6>
             <Lander setUser = {this.setUser} />
           </h6>
@@ -29,5 +31,6 @@ class Page extends React.Component {
         )
     }
   }
+
 
 ReactDOM.render(<Page />, document.getElementById('mount'))    
