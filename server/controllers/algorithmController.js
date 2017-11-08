@@ -6,6 +6,7 @@ var Algo = mongoose.model('algorithmSchema');
 exports.getAllAlgorithms = function(req, res) {
 	console.log('run')
   Algo.find({}, (err, allAlgos) => {
+  	console.log("All Algos = " + JSON.stringify(allAlgos));
     if (err) console.error(err); 
     res.send(allAlgos); 
   })

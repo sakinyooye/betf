@@ -30,6 +30,7 @@ class Lander extends React.Component {
     this.handleCheck = this.handleCheck.bind(this)
   }
 
+
 // THESE ARE JUST FOR THE SIGN UP. 
   //handle username submission and updates state
   handleUsername(event) {

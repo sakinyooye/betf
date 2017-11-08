@@ -5,6 +5,7 @@ export class Game extends React.Component {
 	constructor(props) {
 		super(props);
 
+
 	};
 
 	handleClick(){
@@ -30,7 +31,7 @@ export class Game extends React.Component {
 	};
 
 	render(){
-		<div>{this.props.game.description}</div>
+		return (<div onClick={this.handleClick.bind(this)} >{this.props.game.name}</div>)
 	};
 }
 

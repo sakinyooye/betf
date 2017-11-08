@@ -4,6 +4,7 @@ var axios = require('axios');
 export class UserInfo extends React.Component {
 	constructor(props) {
 		super(props);
+		console.log(this.props.username);
 	}
 
 	render(){
