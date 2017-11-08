@@ -5,9 +5,9 @@ module.exports = function(app) {
   var algorithms = require('../controllers/algorithmController.js');
 
   //routes for signing in
-app.post('/login',(req, res) =>{
-  console.log(req.body)
-  res.send({t: 'trying'})
+  app.post('/login',(req, res) =>{
+    console.log('this is req.body in the routes file', req.body)
+    res.send({t: 'true'})
 })
 
   // routes for game:
