@@ -4,12 +4,6 @@ module.exports = function(app) {
   var game = require('../controllers/gameController.js');
   var algorithms = require('../controllers/algorithmController.js');
 
-  //routes for signing in
-  app.post('/login',(req, res) =>{
-    console.log('this will only run if there are other login routes', req.body)
-    res.send({t: 'true'})
-})
-
   // routes for game:
   app.get('/users', user.getAllUsers)
   app.post('/users', user.addAUser); // sign-up
@@ -36,6 +30,7 @@ module.exports = function(app) {
 
   // gameFrame (client/gamesList/GameFrame) is running this. 
   app.get('/algos/:id', algorithms.getSpecifiedAlgorithm)
+  app.put('/algos/:id/:property/:newValue', algorithms.updateAlgoProperty)
 
   app.put('/algos/:id', algorithms.updateSubmissionHistory)
   app.delete('/algos/:id', algorithms.deleteAlgorithm)

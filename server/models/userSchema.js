@@ -37,7 +37,6 @@ var userSchema = new Schema({
   gameHistory: {
     type: Array, 
   }, 
-
 });
 
 

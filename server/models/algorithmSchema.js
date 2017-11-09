@@ -21,7 +21,6 @@ var algorithmSchema = new Schema({
 
   functionName: {
     type: String, 
-    required: true, 
   }, 
 
   testingSuite: {
