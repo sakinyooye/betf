@@ -99,7 +99,7 @@ export class GameFrame extends React.Component {
 			<div className="stack">
 				<div> This is where all of the components will go. 
 					<Prompt promptdetails={this.state.prompt} />
-					<CodeEntryForm seedCode = {this.state.seedCode} /> 
+					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests} /> 
 				</div> 
 
 				<div className="inline-block-div"> 
