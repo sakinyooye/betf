@@ -33,25 +33,22 @@ export class GameFrame extends React.Component {
       isXonsoleRun : false, 
       isTimerRunning : false, 
     }
-
+    console.log('gameObject', this.props.gameObject)
     this.algorithmID = this.props.gameObject.algorithmID
     this.getAlgorithm = this.getAlgorithm.bind(this)
     this.getSeedCode = this.getSeedCode.bind(this)
     this.getTests = this.getTests.bind(this)
     this.toggleSubmitStatus = this.toggleSubmitStatus.bind(this)
     this.toggleRunXonsoleStatus = this.toggleRunXonsoleStatus.bind(this)
-
 	}
 
 
-  getAlgorithm(algoId, ...callback) {
-		// need to add a process.env variable here.
-	  let extension = '/algos/' + algoId
-	  let algorithm = axios.get(extension) // TODO: change from local to process.env on deployment.
+  getAlgorithm(algoId, cb) {
+	  axios.get('/algos/' + algoId) 
 	  .then((algorithm) => {
-	  	this.setState({algorithm});
+	  	this.setState({algorithm : algorithm.data});
 	  	// run the response in a callback so that other functions can use it. 
-	  	if (callback) {callback(algorithm)}; 
+	  	if (cb) cb(algorithm.data); 
     })
   }
 
@@ -90,7 +87,6 @@ export class GameFrame extends React.Component {
 
 	componentWillMount() {
 		// on the first mounting of the game frame, we want to render the game. 
-		console.log('the algorithmId: ', this.algorithmID)
 		this.getAlgorithm(this.algorithmID)
 		this.getPrompt(this.algorithmID)
 		this.getSeedCode(this.algorithmID)
@@ -98,7 +94,7 @@ export class GameFrame extends React.Component {
 	}	
 
 	render(props){
-		console.log("this is what is getting sent", this.state.prompt)
+
 		return (
 			<div className="stack">
 				<div> This is where all of the components will go. 

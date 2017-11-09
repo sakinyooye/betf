@@ -25,10 +25,11 @@ exports.addAlgorithm = function(req, res) {
 
 // get '/algos/:id'
 exports.getSpecifiedAlgorithm = function(req, res) {
-	console.log('the id on the req', req.params.id)
+	// console.log('the id on the req', req.params.id)
 	Algo.findById(req.params.id, function(err, algo) {
-		console.log('this is the algorithm object that is got by the /algos/:id route:', algo)
-    if (err) {res.send(err)};
+		// console.log('this is the algorithm object that is got by the /algos/:id route:', algo)
+		// algo is coming back complete. 
+    if (err) res.send(err)
     res.send(algo);
   });
 }
