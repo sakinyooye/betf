@@ -6,11 +6,14 @@ import brace from 'brace';
 import ReactAce from 'react-ace-editor';
 import SubmitButton from './SubmitButton.js' 
 
+
 import 'brace/mode/javascript';
 import 'brace/theme/github';
 import 'brace/snippets/javascript';
 import 'brace/ext/language_tools';
 import 'brace/theme/monokai'
+
+
 
 export class CodeEntryForm extends React.Component {
   constructor(props) {
@@ -36,15 +39,14 @@ export class CodeEntryForm extends React.Component {
     return (
       <div>
         <div>
-        <ReactAce
-        mode="javascript"
-        theme="eclipse"
-        setReadOnly= {false}
-        onChange={this.onChange.bind(this)}
-        style={{ height: '100px' }}
-        ref={instance => { this.ace = instance; }} // Let's put things into scope
-    
-      />
+          <ReactAce
+            mode="javascript"
+            theme="eclipse"
+            setReadOnly= {false}
+            onChange={this.onChange.bind(this)}
+            style={{ height: '100px' }}
+            ref={instance => { this.ace = instance; }} // Let's put things into scope
+          /> 
         </div>
         <SubmitButton value={this.state.value} tests={this.props.tests} reset={this.state.reset}/>
       </div>
