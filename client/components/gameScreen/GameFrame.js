@@ -11,7 +11,7 @@ import CodeEntryForm from './CodeEntryForm.js'
 // import Tests from './Tests' // this needs a file
 // import Xonsole from './Xonsole' // because 'Console' isn't a reserved word but it should be.
 // import RunXonsoleButton from './RunXonsoleButton' // this needs a file
-// import SubmitButton from './SubmitButton.js' // this needs a file
+import SubmitButton from './SubmitButton.js' // this needs a file
 
 // this receives the following props from the 'GamesList': 
 			// game object with: 
@@ -94,7 +94,7 @@ export class GameFrame extends React.Component {
 	}	
 
 	render(props){
-
+			
 		return (
 			<div className="stack">
 				<div> This is where all of the components will go. 
@@ -107,8 +107,8 @@ export class GameFrame extends React.Component {
 					<Tests tests={this.state.tests}/> 
 					<Xonsole toggleRunXonsoleStatus={this.toggleRunXonsoleStatus} isXonsoleRun={this.state.isXonsoleRun}/>
 					<RunXonsoleButton toggleRunXonsoleStatus={this.toggleRunXonsoleStatus}/>  
-					<SubmitButton toggleSubmitStatus={this.toggleSubmitStatus} isSubmitted={this.state.isSubmitted} isTimerRunning = {this.state.isTimerRunning}/>
 				*/}
+					
 				</div>
 			</div> 
 		)
