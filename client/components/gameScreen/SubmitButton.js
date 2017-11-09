@@ -14,13 +14,13 @@ export class SubmitButton extends React.Component {
 		
 	}
 	onClick(e){
-		// axios.post('/test', {
-		// 	value: this.state.valueFromEditor,
-		// 	tests: this.props.tests
-		// })
-		// .then( res => {
-		// 	this.setState({ result: res.data})
-		// })
+		axios.post('/test', {
+			value: this.state.valueFromEditor,
+			tests: this.props.tests
+		})
+		.then( res => {
+			this.setState({ result: res.data})
+		})
 		alert(this.props.value)
 		this.props.reset.setValue();
 		event.preventDefault();
