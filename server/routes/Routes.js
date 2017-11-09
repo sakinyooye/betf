@@ -34,7 +34,9 @@ module.exports = function(app) {
   app.get('/algos', algorithms.getAllAlgorithms)
   app.post('/algos', algorithms.addAlgorithm);
 
+  // gameFrame (client/gamesList/GameFrame) is running this. 
   app.get('/algos/:id', algorithms.getSpecifiedAlgorithm)
+
   app.put('/algos/:id', algorithms.updateSubmissionHistory)
   app.delete('/algos/:id', algorithms.deleteAlgorithm)
 };
