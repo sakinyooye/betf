@@ -39,11 +39,24 @@ exports.updateSubmissionHistory = function(req, res) {
 	// this will take in a submission history organized by <username, time, 
 	// success status> and store it in the algo schema. 
 	Algo.findById(req.params.id, (err, oldAlgo) => {
-		var newSubmission = req.body.submissionHistory
+		let newSubmission = req.body.submissionHistory
 		oldAlgo.submissionHistory.push(newSubmission)
 		res.send(oldAlgorithm)
 	}); 
 }
+
+// put /algos/:id/:property/:newValue'
+exports.updateAlgoProperty = function(req, res) {
+	Algo.findById(req.params.id, (err, algo) => {
+		let targetProp = req.params.property
+		algo.set(targetProp, req.params.newValue)
+		algo.save((err) => {
+			if (err) res.send(err); 
+			res.send(`successfully updated ${algo}`)
+		})
+	})
+}
+
 
 // delete '/algos/:id'
 exports.deleteAlgorithm = (req, res) => {

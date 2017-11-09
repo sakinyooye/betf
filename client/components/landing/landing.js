@@ -62,6 +62,7 @@ class Lander extends React.Component {
       if (response.data.error === undefined) {
         // this changes the state of the main.js this.state.user and triggers a rerender.
         alert('Signed Up Successfully!')
+        
         this.props.setUser(this.state.username) 
       } else {
         this.setState({signUpError : response.data.error})
@@ -114,30 +115,37 @@ class Lander extends React.Component {
 
 
   render(){
+
     return(
         <div>
-          <div>
-            <h1> Sign Up </h1>
+          <div className="container">
             <form>
               Username:
               <input type="text" value={this.state.username} onChange={this.handleUsername} />
               Password:
               <input type="password" value={this.state.password} onChange={this.handlePassword} />
-              <button onClick={this.handleAdd}>Sign-Up</button>
+              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleAdd}>
+              Sign Up
+                <i className="material-icons right">send</i>
+              </button>
             </form>
-            <h3> {this.state.signUpError} </h3>
+            <span className="red-text "> {this.state.signUpError} </span>
           </div> 
 
-          <div>
-            <h1> Log in </h1>
+          <div className="container">
+          
             <form>
               Username:
               <input type="text" value={this.state.usernameToCheck} onChange={this.handleUsernameToCheck}/>
               Password:
               <input type="password" value={this.state.passwordToCheck} onChange={this.handlePasswordToCheck}/>
-              <button onClick={this.handleCheck}>Login</button>
+              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleAdd}>
+                Log In
+                <i className="material-icons right">send</i>
+              </button>
             </form> 
-            <h3> {this.state.logInError} </h3>
+         
+            <span className="red-text "> {this.state.logInError} </span>
           </div>
         </div>
     )
