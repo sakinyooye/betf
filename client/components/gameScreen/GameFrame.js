@@ -71,7 +71,7 @@ export class GameFrame extends React.Component {
 
 	getTests(algoId) {
 		this.getAlgorithm(algoId, (algo) => {
-			var tests = algo.tests
+			var tests = algo.testingSuite
 			this.setState({tests})
 		})
 	}
