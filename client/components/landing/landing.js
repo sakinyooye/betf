@@ -9,14 +9,13 @@ class Lander extends React.Component {
       // these are just for the sign-up.
       username: "",
       password: "",
+      signUpError : "", 
 
       // these are for the log-in
       usernameToCheck : "", 
       passwordToCheck : "", 
-      // really don't need this authenStatus because we are 
-      // rendering the gamesView dependent on the username, 
-      // not the authenStatus. 
-      // authenStatus : false, 
+      logInError : "", 
+
     }
 
     // these are just for sign-up
@@ -60,8 +59,14 @@ class Lander extends React.Component {
       password: this.state.password
     })
     .then((response) => {
-      // this changes the state of the main.js this.state.user and triggers a rerender.
-      this.props.setUser(this.state.username)
+      if (response.data.error === undefined) {
+        // this changes the state of the main.js this.state.user and triggers a rerender.
+        alert('Signed Up Successfully!')
+        
+        this.props.setUser(this.state.username) 
+      } else {
+        this.setState({signUpError : response.data.error})
+      }
     }) 
     .catch(function (error) {
       this.props.setUser('no')
@@ -92,46 +97,55 @@ class Lander extends React.Component {
       password: this.state.passwordToCheck
     })
     .then((response) => {
-      if (response.authenStatus) {
+      if (response.data.error === undefined) {
         // we only set the user if the response is not an error
         // because the user being not null determines whether the
-        // the gamesView page loads. 
+        // the gamesView page loads.
+        alert('Signed In Successfully!') 
         this.props.setUser(this.state.usernameToCheck)
       } else {
-        console.log('should add an alert that says that the username does not exist.')
+        this.setState({logInError : response.data.error})
       }
     })
     .catch((err) => {
       console.error(err)
-      // add the alert container here if time. 
     })
   }
 
 
 
   render(){
+
     return(
         <div>
-          <div>
-            <h1> Sign Up </h1>
+          <div className="container">
             <form>
               Username:
               <input type="text" value={this.state.username} onChange={this.handleUsername} />
               Password:
               <input type="password" value={this.state.password} onChange={this.handlePassword} />
-              <button onClick={this.handleAdd}>Sign-Up</button>
+              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleAdd}>
+              Sign Up
+                <i className="material-icons right">send</i>
+              </button>
             </form>
+            <span className="red-text "> {this.state.signUpError} </span>
           </div> 
 
-          <div>
-            <h1> Log in </h1>
+          <div className="container">
+          
             <form>
               Username:
               <input type="text" value={this.state.usernameToCheck} onChange={this.handleUsernameToCheck}/>
               Password:
               <input type="password" value={this.state.passwordToCheck} onChange={this.handlePasswordToCheck}/>
-              <button onClick={this.handleCheck}>Login</button>
+              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleCheck}>
+                Log In
+                <i className="material-icons right">send</i>
+              </button>
             </form> 
+         
+            <span className="red-text "> {this.state.logInError} </span>
           </div>
         </div>
     )

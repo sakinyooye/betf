@@ -19,6 +19,10 @@ var algorithmSchema = new Schema({
     default: "\/\/ your code here"
   }, 
 
+  functionName: {
+    type: String, 
+  }, 
+
   testingSuite: {
     type: String,  
   }, 

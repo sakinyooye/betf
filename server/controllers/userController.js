@@ -2,7 +2,8 @@
 var mongoose = require('mongoose');
 var Users = mongoose.model('userSchema');
 var bcrypt = require('bcrypt');
-const saltRounds = 10; // this is 'bcrypt'
+var util = require('./controllerUtils.js')
+
 
 // get '/users'
 exports.getAllUsers = function(req, res) {
@@ -17,22 +18,34 @@ exports.getAllUsers = function(req, res) {
 
 // post '/users'
 exports.addAUser = function(req, res) {
-	// this will take in a body that has a username and password. 
-  // need to add authntication to this.
-
-  // check to see if the username 
-
-  var newUser = new Users(req.body);
-  newUser.set('username', 'seamusTest')
-
-
-  console.log('username', newUser.username)
-  console.log('this is req.body in the routes file', req.body)
-  newUser.authenStatus = true; 
-  newUser.save(function(err, newUser) {
-    if (err) {res.send(err)};
-    res.send(newUser)
-  });
+  // this adds a user to the database. 
+  Users.find({}, (err, allUsers) => {
+    // handle bad usernames and passwords: 
+    let allUsernames = allUsers.map((obj) => obj.username)
+    if (allUsernames.includes(req.body.username)) {
+      res.send({error : 'username taken!'})
+    } else if (req.body.username.length < 5) {
+      res.send({error : 'usernames must be at least 5 charachters long!'})
+    } else if (req.body.password.length < 4) {
+      res.send({error : 'passwords must be at least 4 charachters long!'})
+    } else if (req.body.username.split(" ").length > 1 || req.body.username.split(" ").length > 1) {
+      res.send({error : 'usernames and passwords may not contain spaces!'})
+    
+    // if not a bad username or password, hash it's password.
+    } else {
+      // console.log('your user name, ' + req.body.username + ' and your password, ' + req.body.password + ' are valid.' )
+      bcrypt.hash(req.body.password, 10).then((hashedPass) => {
+        req.body.password = hashedPass; 
+        var newUser = new Users(req.body)
+        newUser.save(function(err, newUser) {
+          if (err) {res.send(err)};
+          // landing needs to take this or the error object
+          // and turn it into an appropriate view. 
+          res.send(newUser)
+        })
+      })
+    };
+  })
 }; 
 
 // post '/users/auth'
@@ -43,26 +56,26 @@ exports.authUser = function(req, res) {
       console.error('a res.send() with an error was sent to handleAdd')
       res.send('there was an error')
     } else {
-      console.log('this is the match format: ', match) 
-      // if there were no matching usernames, respond with authenStatus = false. 
       if (match.length === 0) {
-        match = {}; 
-        match.authenStatus = false; 
-        res.send(match)
+        // if there are no matches, send an error. 
+        res.send({error : 'That username does not exist. Sign up above.'})
       } else if (match.length === 1) {
-        console.log('there was a match!')
-        match = JSON.parse(JSON.stringify(match[0])); 
-        // do the bcrypt password check. 
-        match.authenStatus = true; 
-        console.log('match', match)
-        res.send(match)
-      }
+        var hashedPassword = match[0].password
+        var inputPassword = req.body.password
 
+        bcrypt.compare(inputPassword, hashedPassword, (err, isCorrectPassword) => {
+          if (isCorrectPassword) {
+            var currentUser = new Users(req.body)
+            res.send(currentUser)
+          } else {
+            res.send({error : 'That password and username did not match. Please try again.'})
+          }
+        })
+
+      }
     }
   })
 }
-
-
 
 
 // get '/users/:username'
