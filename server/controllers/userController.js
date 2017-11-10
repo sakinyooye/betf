@@ -2,7 +2,6 @@
 var mongoose = require('mongoose');
 var Users = mongoose.model('userSchema');
 var bcrypt = require('bcrypt');
-var util = require('./controllerUtils.js')
 
 
 // get '/users'

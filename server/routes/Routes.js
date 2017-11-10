@@ -1,4 +1,12 @@
 'use strict'; // ?
+
+// we have a ton of routes, so we seperated the controller and routes files. 
+// each of these routes has reference to a helper function that exists in a 
+// controller file. To see what happens at a given endpoint, look up the appro-
+// priate controller file and find the matching helper function. We are using 
+// MLab as a database. See Seamus for the user/pass.
+
+
 module.exports = function(app) {
   var user = require('../controllers/userController.js');
   var game = require('../controllers/gameController.js');
@@ -9,7 +17,6 @@ module.exports = function(app) {
   app.get('/users', user.getAllUsers)
   app.post('/users', user.addAUser); // sign-up
   app.post('/users/auth', user.authUser) // log-in
-
 
   // routes to handle getting and updating specific user. 
   app.get('/users/:username', user.getSpecificUserData)
@@ -35,7 +42,6 @@ module.exports = function(app) {
 
   app.put('/algos/:id', algorithms.updateSubmissionHistory)
   app.delete('/algos/:id', algorithms.deleteAlgorithm)
-
 
   //routes to perform tests of evaluated code
   app.post('/test', test.getSubmissionEvaluation)
