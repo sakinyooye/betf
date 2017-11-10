@@ -12,8 +12,8 @@ export class Timer extends React.Component {
 
 render(){
 		return (
-			<div>
-		        <div> 
+			<div >
+		        <div > 
                     <ReactCountdownClock 
                             seconds={100}
                             color="#000"
