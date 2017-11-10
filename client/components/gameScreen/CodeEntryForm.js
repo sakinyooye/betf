@@ -35,7 +35,7 @@ export class CodeEntryForm extends React.Component {
   // this displays 'loading...' until the seedcode has loaded from the gameFrame. 
   return (this.props.seedCode !== null) ? 
     (<div>
-        <div>
+        <div className="z-depth-4">
           <AceEditor
             mode="javascript"
             theme="monokai"
@@ -50,6 +50,7 @@ export class CodeEntryForm extends React.Component {
             enableSnippets={true}
           />
         </div>
+        <br/>
         <SubmitButton value={this.state.value}
          tests={this.props.tests} 
          algo={this.props.algo}
