@@ -10,7 +10,7 @@ export class SubmitButton extends React.Component {
 			valueFromEditor: this.props.value,
 			result: ""
 		}
-
+	this.onClick = this.onClick.bind(this)
 		
 	}
 	onClick(e){
@@ -30,7 +30,7 @@ export class SubmitButton extends React.Component {
 		
 		return (
 			<div>
-				<button onClick={this.onClick.bind(this)}>Submit</button>
+				<button onClick={this.onClick}>Submit</button>
 				<div>
 				<Result sub={this.state.result}/>
 				</div>
