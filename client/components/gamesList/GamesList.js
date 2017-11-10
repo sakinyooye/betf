@@ -9,9 +9,6 @@ export class GamesList extends React.Component{
 		super(props);
 	}
 
-	componentDidMount(){
-	}
-
 //renders each game that is returned by the '/games' route(called from GamesView.js). 
 //The props are coming from the GamesView
 	render(){

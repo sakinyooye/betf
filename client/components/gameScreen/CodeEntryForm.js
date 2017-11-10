@@ -19,19 +19,28 @@ export class CodeEntryForm extends React.Component {
     this.state={
       value: "",
       reset : "", 
+      // code: 
+      submitted : false, 
     }
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this)
   }
   onChange(newValue,e) {
     event.preventDefault();
     const editor = this.ace.editor; // The editor object is from Ace's API
     this.state.value = editor.getValue()
-    console.log(this.state.value)
+    console.log('the value in onChange', this.state.value)
+    // this.state.value is updating
     // this.setState({reset : editor})
     
   }
 
+  onSubmit(cb) {
+    this.setState({submitted : true}, cb)
+  }
+
   render() {
+  console.log('this.state.value in render', this.state.value)
   // this displays 'loading...' until the seedcode has loaded from the gameFrame. 
   return (this.props.seedCode !== null) ? 
     (<div>
@@ -42,7 +51,7 @@ export class CodeEntryForm extends React.Component {
             setReadOnly= {false}
             onChange={this.onChange}
             value = {this.props.seedCode}
-            defaultValue = {`this.props.seedCode`}
+            defaultValue = {this.props.seedCode}
             style={{ height: '100px' }}
             ref={instance => { this.ace = instance; }} // Let's put things into scope
             enableBasicAutocompletion={true}
@@ -50,11 +59,16 @@ export class CodeEntryForm extends React.Component {
             enableSnippets={true}
           />
         </div>
-        <br/>
-        <SubmitButton value={this.state.value}
+
+
+        <SubmitButton 
+         submit={this.onSubmit}
+         value={this.state.value}
+
          tests={this.props.tests} 
          algo={this.props.algo}
-         reset={this.state.reset}/>
+         reset={this.state.reset}
+        />
       </div>
     ) : (<div> loading... </div>)
   }
