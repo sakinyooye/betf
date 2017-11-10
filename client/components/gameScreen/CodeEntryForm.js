@@ -7,14 +7,9 @@ import ReactAce from 'react-ace-editor';
 import AceEditor from 'react-ace'
 import SubmitButton from './SubmitButton.js' 
 
-
 import 'brace/mode/javascript';
-import 'brace/theme/github';
 import 'brace/snippets/javascript';
 import 'brace/ext/language_tools';
-import 'brace/theme/monokai'
-
-
 
 export class CodeEntryForm extends React.Component {
   constructor(props) {
@@ -26,10 +21,11 @@ export class CodeEntryForm extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
   onChange(newValue,e) {
+    event.preventDefault();
     const editor = this.ace.editor; // The editor object is from Ace's API
     this.setState({value : editor.getValue()})
     this.setState({reset : editor})
-    event.preventDefault();
+    
   }
 
   render() {
@@ -37,7 +33,7 @@ export class CodeEntryForm extends React.Component {
   return (this.props.seedCode !== null) ? 
     (<div>
         <div>
-          <AceEditor
+          <ReactAce
             mode="javascript"
             theme="eclipse"
             setReadOnly= {false}
