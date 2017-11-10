@@ -97,15 +97,15 @@ export class GameFrame extends React.Component {
 	render(props){
 			
 		return (
-			<div className="stack">
-				<h1>
-					<Timer/>
-				</h1>
-				<div>
+			<div className="row">
+				
+				<div className="col s9">
 					<Prompt promptdetails={this.state.prompt} />
 					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests} /> 
 				</div> 
-
+				<div className="col s3">
+					<Timer/>
+				</div>
 				<div className="inline-block-div"> 
 					{/*<Timer />
 					<Tests tests={this.state.tests}/> 
@@ -115,6 +115,7 @@ export class GameFrame extends React.Component {
 					
 				</div>
 			</div> 
+	
 		)
 	}
 }
