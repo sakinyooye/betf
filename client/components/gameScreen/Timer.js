@@ -3,6 +3,8 @@
 import React from 'react';
 import axios from 'axios'; 
 import ReactCountdownClock from 'react-countdown-clock';
+import CodeEntryForm from './CodeEntryForm.js';
+import SubmitButton from './SubmitButton.js'
 
 
 export class Timer extends React.Component {
@@ -15,14 +17,15 @@ render(){
 			<div >
 		        <div > 
                     <ReactCountdownClock 
-                            seconds={100}
+                            seconds={5}
                             color="#FF0000"
                             alpha={0.9}
                             size={100}
-                            onComplete={function() {
-                                console.log('works')
-                            }}
+                            onComplete={this.props.testFun}
                     /> 
+                </div>
+                <div>
+                    {/* <CodeEntryForm timeUp={this.onTimeEnds}/> */}
                 </div>
 			</div>
 		)

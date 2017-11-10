@@ -105,9 +105,6 @@ export class GameFrame extends React.Component {
 					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests}
 					 algo={this.props.gameObject.algorithmID}/> 
 				</div> 
-				<div className="col s3">
-					<Timer/>
-				</div>
 				<div className="inline-block-div"> 
 					{/*<Timer />
 					<Tests tests={this.state.tests}/> 
