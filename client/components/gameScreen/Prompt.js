@@ -13,7 +13,7 @@ render(){
 				<blockquote>
 				<h3>{this.props.name}</h3>
 				</blockquote>
-				<div>{this.props.promptdetails}</div>
+				<div >{this.props.promptdetails}</div>
 			</div>
 		)
 	}

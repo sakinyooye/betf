@@ -25,6 +25,7 @@ export class SubmitButton extends React.Component {
 		})
 		.then( res => {
 			console.log('RES', res.data.testResults)
+
 			
 			axios.post('/test', {
 				value: this.props.value, 
@@ -36,6 +37,7 @@ export class SubmitButton extends React.Component {
 				console.log('RES', res.data.testResults)
 				this.setState({ result : res.data})
 			})
+
 		})
 	}
 
@@ -50,7 +52,7 @@ export class SubmitButton extends React.Component {
 				<Result sub={this.state.result}/>
 				</div>
 				<div>
-				<Timer testFun={this.onClick}/>
+				{/* <Timer testFun={this.onClick}/> */}
 				</div>
 			</div>
 		)
