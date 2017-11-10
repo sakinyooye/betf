@@ -38,7 +38,9 @@ export class GamesView extends React.Component {
 	render(){
 		return (
 			<div>
+				<div >
 				<UserInfo username={this.props.username} points={this.state.points} level={this.state.level}/>
+				</div>
 				<GamesList gameslist={this.state.games} username={this.props.username}/>
 			</div>
 		)

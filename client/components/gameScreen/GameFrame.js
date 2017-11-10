@@ -99,7 +99,7 @@ export class GameFrame extends React.Component {
 		return (
 			<div className="row">
 				
-				<div className="col s9">
+				<div className="col s9 container">
 					<Prompt promptdetails={this.state.prompt} />
 					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests} /> 
 				</div> 
