@@ -14,7 +14,7 @@ export class Timer extends React.Component {
 
 render(){
 		return (
-			<div className="container">
+			<div >
 		        <div > 
                     <ReactCountdownClock 
                             seconds={500}

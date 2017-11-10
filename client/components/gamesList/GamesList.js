@@ -15,11 +15,14 @@ export class GamesList extends React.Component{
 		return (
 			<div>
 				<h5> Games </h5>
-					<ul >
+					<div >
 						{this.props.gameslist.map(function(game){
-							return <li className="collapsible" data-collapible="accordion"> <Game game={game} /></li>
+							<br/>
+							return <div className="z-depth-4" >
+							 <Game game={game} /></div>
+							 
 						})}
-					</ul>
+					</div>
 			</div>
 		)
 	}

@@ -18,7 +18,6 @@ export class SubmitButton extends React.Component {
 
 		this.props.submit(() => {
 			console.log("entryForm Data: ", this.props.value)
-			console.log("test data", this.props.testSuite)
 			axios.post('/test', {
 				value: this.props.value,
 				testSuite: this.props.testSuite,
@@ -43,7 +42,6 @@ export class SubmitButton extends React.Component {
 				<div>
 				<Result sub={this.state.result}/>
 				</div>
-				
 			</div>
 		)
 	}
