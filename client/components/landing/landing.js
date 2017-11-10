@@ -139,7 +139,7 @@ class Lander extends React.Component {
               <input type="text" value={this.state.usernameToCheck} onChange={this.handleUsernameToCheck}/>
               Password:
               <input type="password" value={this.state.passwordToCheck} onChange={this.handlePasswordToCheck}/>
-              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleAdd}>
+              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleCheck}>
                 Log In
                 <i className="material-icons right">send</i>
               </button>
