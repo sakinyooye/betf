@@ -46,12 +46,13 @@ exports.getSubmissionEvaluation = function(req,res){
 		console.log("TESTING CHILD PROCESS");
 		
 		cmd.get('cd data && mocha', function(err, data, stderr){
+			console.log("DATATATAT", data)
 			var passing = data[/passing/.exec(data).index - 2];
 			var failing = data[/failing/.exec(data).index - 2];
-			console.log('CD OUTPUT');
-			console.log(data);
-			console.log('Passing ', passing);
-			console.log('Failing', failing);
+			// console.log('CD OUTPUT');
+			// console.log(data);
+			// console.log('Passing ', passing);
+			// console.log('Failing', failing);
 			var returnObj = {'passing': passing, 
 							 'failing': failing,
 							 'testResults': data
