@@ -5,15 +5,15 @@ import Game from './Game.js';
 export class GamesList extends React.Component{
 	constructor(props){
 		super(props);
-		console.log(this.props.gameslist , 'gameslist testConstructor');
+		// console.log(this.props.gameslist , 'gameslist testConstructor');
 	}
 
 	componentDidMount(){
-		console.log(this.props.gameslist , 'gameslist testCDN');
+		// console.log(this.props.gameslist , 'gameslist testCDN');
 	}
 
 	render(){
-		console.log(this.props.gameslist , 'gameslist testrender');
+		// console.log(this.props.gameslist , 'gameslist testrender');
 		return (
 			<div>
 				<h5> Games </h5>
