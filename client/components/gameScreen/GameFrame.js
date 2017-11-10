@@ -109,6 +109,7 @@ export class GameFrame extends React.Component {
 				<div className="col s3 container">
 					<Timer/>
 				</div>
+
 				<div className="inline-block-div"> 
 					{/*<Timer />
 					<Tests tests={this.state.tests}/> 

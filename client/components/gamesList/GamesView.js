@@ -1,3 +1,5 @@
+//This is the highest level view of the page that will include a list of all available challenges
+
 var React = require('React');
 var axios = require('axios');
 
@@ -8,24 +10,15 @@ export class GamesView extends React.Component {
 	constructor(props) {
 		super(props);
 
+		//sets default/dummy values for points and level
 		this.state = {
 			points: 1000,
 			level: 2,
 			games: [ ], 
 		};
 	};
-
-	/*getData(){
-		axios.get('/algos')
-		.then(function(result){
-			 //this.setState({games: result.data});
-			console.log(JSON.stringify(result.data) + "this is result");
-		}.bind(this))
-		.catch((err) => {
-			console.log("There's an ERROR with algos get request");
-			throw(err)});
-	}*/
 	
+//upon the GamesView mounting, we are making a get request to the /games route which will return an array of games to render on the page
 	componentDidMount(){
 		axios.get('/games')
 		.then(function(result){
@@ -35,6 +28,8 @@ export class GamesView extends React.Component {
 			throw(err)});
 	};
 
+//renders two components: UserInfo with dummy user date and GamesList with a list of available games. 
+//The username prop is coming from main.js in the public folder
 	render(){
 		return (
 			<div>
