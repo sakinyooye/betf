@@ -17,15 +17,12 @@ render(){
 			<div className="container">
 		        <div > 
                     <ReactCountdownClock 
-                            seconds={5}
+                            seconds={500}
                             color="#FF0000"
                             alpha={0.9}
                             size={100}
                             onComplete={this.props.testFun}
                     /> 
-                </div>
-                <div>
-                    {/* <CodeEntryForm timeUp={this.onTimeEnds}/> */}
                 </div>
 			</div>
 		)

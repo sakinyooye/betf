@@ -40,7 +40,7 @@ export class CodeEntryForm extends React.Component {
   }
 
   render() {
-  console.log('this.state.value in render', this.state.value)
+  console.log('this.props.testSuite in CodeEntryForm', this.props.testSuite)
   // this displays 'loading...' until the seedcode has loaded from the gameFrame. 
   return (this.props.seedCode !== null) ? 
     (<div>
@@ -62,7 +62,7 @@ export class CodeEntryForm extends React.Component {
         <SubmitButton 
          submit={this.onSubmit}
          value={this.state.value}
-         tests={this.props.tests} 
+         testSuite={this.props.testSuite} 
          algo={this.props.algo}
          reset={this.state.reset}
         />
