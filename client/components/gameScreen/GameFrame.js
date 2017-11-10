@@ -98,14 +98,15 @@ export class GameFrame extends React.Component {
 	render(props){
 			
 		return (
-			<div className="row">
+			 <div className="container">
+				<div className="row">
 				
 				<div className="col s9 container">
 					<Prompt promptdetails={this.state.prompt} name={this.props.gameObject.name} />
 					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests}
 					 algo={this.props.gameObject.algorithmID}/> 
 				</div> 
-				<div className="col s3">
+				<div className="col s3 container">
 					<Timer/>
 				</div>
 				<div className="inline-block-div"> 
@@ -117,7 +118,7 @@ export class GameFrame extends React.Component {
 					
 				</div>
 			</div> 
-	
+			</div>
 		)
 	}
 }
