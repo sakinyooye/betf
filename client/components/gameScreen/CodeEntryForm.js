@@ -6,6 +6,7 @@ import brace from 'brace';
 import ReactAce from 'react-ace-editor';
 import AceEditor from 'react-ace'
 import SubmitButton from './SubmitButton.js' 
+import Timer from './Timer.js'
 
 import 'brace/mode/javascript';
 import 'brace/snippets/javascript';

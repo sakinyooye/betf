@@ -120,10 +120,11 @@ class Lander extends React.Component {
         <div>
           <div className="container">
             <form>
-              Username:
-              <input type="text" value={this.state.username} onChange={this.handleUsername} />
-              Password:
-              <input type="password" value={this.state.password} onChange={this.handlePassword} />
+            <i class="material-icons prefix">account_circle</i>
+              
+              <input type="text" value={this.state.username} onChange={this.handleUsername} placeholder="Username" />
+              <i class="material-icons prefix">edit</i>
+              <input type="password" value={this.state.password} onChange={this.handlePassword} placeholder="Password"/>
               <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleAdd}>
               Sign Up
                 <i className="material-icons right">send</i>
@@ -135,11 +136,12 @@ class Lander extends React.Component {
           <div className="container">
           
             <form>
-              Username:
-              <input type="text" value={this.state.usernameToCheck} onChange={this.handleUsernameToCheck}/>
-              Password:
-              <input type="password" value={this.state.passwordToCheck} onChange={this.handlePasswordToCheck}/>
-              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleCheck}>
+              <i class="material-icons prefix">account_circle</i>
+              <input type="text" value={this.state.usernameToCheck} onChange={this.handleUsernameToCheck} placeholder="Username" />
+              
+              <i class="material-icons prefix">edit</i>
+              <input type="password" value={this.state.passwordToCheck} onChange={this.handlePasswordToCheck} placeholder="Password"/>
+              <button className="btn waves-effect waves-light " type="submit" name="action" onClick={this.handleCheck}>
                 Log In
                 <i className="material-icons right">send</i>
               </button>

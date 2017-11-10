@@ -1,7 +1,8 @@
 //submit button.js
 import React from 'react';
 import axios from 'axios'
-import Result from "./Result.js"
+import Result from './Result.js';
+import Timer from './Timer.js';
 
 export class SubmitButton extends React.Component {
 	constructor(props) {
@@ -12,9 +13,18 @@ export class SubmitButton extends React.Component {
 		}
 		this.onClick = this.onClick.bind(this)
 	}
+	
 	onClick(e){
+
 		this.props.submit(() => {
 			console.log("entryForm Data: ", this.props.value)
+		axios.post('/test', {
+			value: this.state.valueFromEditor,
+			tests: this.props.tests,
+			algo: this.props.algo
+		})
+		.then( res => {
+			console.log('RES', res.data.testResults)
 			
 			axios.post('/test', {
 				value: this.props.value, 
@@ -38,6 +48,9 @@ export class SubmitButton extends React.Component {
 				<button className="btn waves-effect waves-light"  onClick={this.onClick}>Submit</button>
 				<div>
 				<Result sub={this.state.result}/>
+				</div>
+				<div>
+				<Timer testFun={this.onClick}/>
 				</div>
 			</div>
 		)

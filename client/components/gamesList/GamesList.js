@@ -1,3 +1,5 @@
+//This is a component which houses a list of games
+
 var React = require('React');
 var axios = require('axios');
 import Game from './Game.js';
@@ -5,21 +7,17 @@ import Game from './Game.js';
 export class GamesList extends React.Component{
 	constructor(props){
 		super(props);
-		// console.log(this.props.gameslist , 'gameslist testConstructor');
 	}
 
-	componentDidMount(){
-		// console.log(this.props.gameslist , 'gameslist testCDN');
-	}
-
+//renders each game that is returned by the '/games' route(called from GamesView.js). 
+//The props are coming from the GamesView
 	render(){
-		// console.log(this.props.gameslist , 'gameslist testrender');
 		return (
 			<div>
 				<h5> Games </h5>
-					<ul>
+					<ul >
 						{this.props.gameslist.map(function(game){
-							return <li> <Game game={game} /></li>
+							return <li className="collapsible" data-collapible="accordion"> <Game game={game} /></li>
 						})}
 					</ul>
 			</div>

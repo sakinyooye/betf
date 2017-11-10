@@ -97,18 +97,24 @@ export class GameFrame extends React.Component {
 	}	
 
 	render(props){
+
 		// console.log('tests in gameFrame render', this.state.tests)
 		return (this.state.tests === null || this.state.prompt === null || this.state.seedCode === null || this.state.algorithm === null) ? 
 		(<div> loading gameFrame... </div>) : 
 		(<div className="row">
+			
+		return (
+			 <div className="container">
+				<div className="row">
 				<div className="col s9 container">
 					<Prompt promptdetails={this.state.prompt} name={this.props.gameObject.name} />
 					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests}
 					 algo={this.props.gameObject.algorithmID} /> 
 				</div> 
-				<div className="col s3">
+				<div className="col s3 container">
 					<Timer/>
 				</div>
+
 				<div className="inline-block-div"> 
 					{/*
 					<Xonsole toggleRunXonsoleStatus={this.toggleRunXonsoleStatus} isXonsoleRun={this.state.isXonsoleRun}/>
@@ -117,6 +123,7 @@ export class GameFrame extends React.Component {
 					
 				</div>
 			</div> 
+			</div>
 		)
 	}
 }
