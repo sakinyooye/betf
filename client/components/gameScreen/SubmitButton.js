@@ -30,7 +30,7 @@ export class SubmitButton extends React.Component {
 		
 		return (
 			<div>
-				<button onClick={this.onClick}>Submit</button>
+				<button className="btn waves-effect waves-light"  onClick={this.onClick}>Submit</button>
 				<div>
 				<Result sub={this.state.result}/>
 				</div>
