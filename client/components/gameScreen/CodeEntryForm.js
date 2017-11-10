@@ -46,7 +46,10 @@ export class CodeEntryForm extends React.Component {
             enableSnippets={true}
           />
         </div>
-        <SubmitButton value={this.state.value} tests={this.props.tests} reset={this.state.reset}/>
+        <SubmitButton value={this.state.value}
+         tests={this.props.tests} 
+         algo={this.props.algo}
+         reset={this.state.reset}/>
       </div>
     ) : (<div> loading... </div>)
   }

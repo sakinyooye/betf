@@ -34,7 +34,8 @@ export class GameFrame extends React.Component {
       isXonsoleRun : false, 
       isTimerRunning : false, 
     }
-    console.log('gameObject', this.props.gameObject)
+	console.log('gameObject', this.props.gameObject)
+	
     this.algorithmID = this.props.gameObject.algorithmID
     this.getAlgorithm = this.getAlgorithm.bind(this)
     this.getSeedCode = this.getSeedCode.bind(this)
@@ -101,7 +102,8 @@ export class GameFrame extends React.Component {
 				
 				<div className="col s9 container">
 					<Prompt promptdetails={this.state.prompt} />
-					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests} /> 
+					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests}
+					 algo={this.props.gameObject.algorithmID}/> 
 				</div> 
 				<div className="col s3">
 					<Timer/>
