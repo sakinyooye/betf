@@ -10,6 +10,7 @@ import SubmitButton from './SubmitButton.js'
 import 'brace/mode/javascript';
 import 'brace/snippets/javascript';
 import 'brace/ext/language_tools';
+import 'brace/theme/monokai'
 
 export class CodeEntryForm extends React.Component {
   constructor(props) {
@@ -23,8 +24,9 @@ export class CodeEntryForm extends React.Component {
   onChange(newValue,e) {
     event.preventDefault();
     const editor = this.ace.editor; // The editor object is from Ace's API
-    this.setState({value : editor.getValue()})
-    this.setState({reset : editor})
+    this.state.value = editor.getValue()
+    console.log(this.state.value)
+    // this.setState({reset : editor})
     
   }
 
@@ -33,12 +35,13 @@ export class CodeEntryForm extends React.Component {
   return (this.props.seedCode !== null) ? 
     (<div>
         <div>
-          <ReactAce
+          <AceEditor
             mode="javascript"
-            theme="eclipse"
+            theme="monokai"
             setReadOnly= {false}
+            onChange={this.onChange}
             value = {this.props.seedCode}
-            onChange={this.onChange.bind(this)}
+            defaultValue = {`this.props.seedCode`}
             style={{ height: '100px' }}
             ref={instance => { this.ace = instance; }} // Let's put things into scope
             enableBasicAutocompletion={true}
