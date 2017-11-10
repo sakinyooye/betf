@@ -30,6 +30,7 @@ export class GameFrame extends React.Component {
       prompt : null, 
       seedCode : null, 
       tests : null, 
+      // the below three are not currently being used. 
       isSubmitted : false, 
       isXonsoleRun : false, 
       isTimerRunning : false, 
@@ -72,14 +73,14 @@ export class GameFrame extends React.Component {
 	getTests(algoId) {
 		this.getAlgorithm(algoId, (algo) => {
 			var tests = algo.testingSuite
+			// console.log('tests in getTests', tests)
 			this.setState({tests})
 		})
 	}
 
 	// both of these functions handle the pressing of the buttons. When they are pressed, they change the state
 	// of the GameFrame, triggering a rerendering and passing down a true value to their respective children. 
-	// after the child acts on the status change, it will call the function again, setting the state back to false. 
-	// These must be ES5 functions because arrow functions will result in the this binding getting messed up. 
+	// NIETHER OF THESE ARE BEING USED CURRENTLY, BUT PROBABLY SHOULD BE.
 	toggleSubmitStatus() {
 		this.setState({isSubmitted : !this.state.isSubmitted})
 	}
@@ -96,23 +97,26 @@ export class GameFrame extends React.Component {
 	}	
 
 	render(props){
+
+		// console.log('tests in gameFrame render', this.state.tests)
+		return (this.state.tests === null || this.state.prompt === null || this.state.seedCode === null || this.state.algorithm === null) ? 
+		(<div> loading gameFrame... </div>) : 
+		(<div className="row">
 			
 		return (
 			 <div className="container">
 				<div className="row">
-				
 				<div className="col s9 container">
 					<Prompt promptdetails={this.state.prompt} name={this.props.gameObject.name} />
 					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests}
-					 algo={this.props.gameObject.algorithmID}/> 
+					 algo={this.props.gameObject.algorithmID} /> 
 				</div> 
 				<div className="col s3 container">
 					<Timer/>
 				</div>
 
 				<div className="inline-block-div"> 
-					{/*<Timer />
-					<Tests tests={this.state.tests}/> 
+					{/*
 					<Xonsole toggleRunXonsoleStatus={this.toggleRunXonsoleStatus} isXonsoleRun={this.state.isXonsoleRun}/>
 					<RunXonsoleButton toggleRunXonsoleStatus={this.toggleRunXonsoleStatus}/>  
 				*/}
