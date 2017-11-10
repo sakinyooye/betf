@@ -5,7 +5,6 @@
 
 import React from 'react';
 import axios from 'axios';
-// import Timer from './Timer.js'; // this needs a file. 
 import Prompt from './Prompt.js'; 
 import Timer from './Timer.js'; 
 import CodeEntryForm from './CodeEntryForm.js'
@@ -25,6 +24,7 @@ import SubmitButton from './SubmitButton.js' // this needs a file
 export class GameFrame extends React.Component {
 	constructor(props) {
 		super(props);
+		console.log(props)
 		this.state = {
 			algorithm : null, 
       prompt : null, 
@@ -101,7 +101,7 @@ export class GameFrame extends React.Component {
 			<div className="row">
 				
 				<div className="col s9 container">
-					<Prompt promptdetails={this.state.prompt} />
+					<Prompt promptdetails={this.state.prompt} name={this.props.gameObject.name} />
 					<CodeEntryForm seedCode = {this.state.seedCode} test={this.state.tests}
 					 algo={this.props.gameObject.algorithmID}/> 
 				</div> 

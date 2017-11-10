@@ -16,7 +16,7 @@ render(){
 		        <div > 
                     <ReactCountdownClock 
                             seconds={100}
-                            color="#000"
+                            color="#FF0000"
                             alpha={0.9}
                             size={100}
                             onComplete={function() {
