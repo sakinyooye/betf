@@ -18,22 +18,13 @@ export class SubmitButton extends React.Component {
 
 		this.props.submit(() => {
 			console.log("entryForm Data: ", this.props.value)
-		axios.post('/test', {
-			value: this.state.valueFromEditor,
-			tests: this.props.tests,
-			algo: this.props.algo
-		})
-		.then( res => {
-			console.log('RES', res.data.testResults)
-
-			
 			axios.post('/test', {
-				value: this.props.value, 
-				tests: this.props.tests, // Game.testingSuite  GETTING THIS
-				algo: this.props.algo //algorithmID 	GETTING THIS
+				value: this.props.value,
+				testSuite: this.props.testSuite,
+				algo: this.props.algo
 			})
 
-			.then(res => {
+			.then( res => {
 				console.log('RES', res.data.testResults)
 				this.setState({ result : res.data})
 			})
@@ -50,9 +41,6 @@ export class SubmitButton extends React.Component {
 				<button className="btn waves-effect waves-light"  onClick={this.onClick}>Submit</button>
 				<div>
 				<Result sub={this.state.result}/>
-				</div>
-				<div>
-				{/* <Timer testFun={this.onClick}/> */}
 				</div>
 			</div>
 		)

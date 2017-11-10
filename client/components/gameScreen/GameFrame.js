@@ -29,7 +29,7 @@ export class GameFrame extends React.Component {
 			algorithm : null, 
       prompt : null, 
       seedCode : null, 
-      tests : null, 
+      testSuite : null, 
       // the below three are not currently being used. 
       isSubmitted : false, 
       isXonsoleRun : false, 
@@ -72,9 +72,8 @@ export class GameFrame extends React.Component {
 
 	getTests(algoId) {
 		this.getAlgorithm(algoId, (algo) => {
-			var tests = algo.testingSuite
-			// console.log('tests in getTests', tests)
-			this.setState({tests})
+			var testSuite = algo.testingSuite
+			this.setState({testSuite})
 		})
 	}
 
@@ -97,17 +96,12 @@ export class GameFrame extends React.Component {
 	}	
 
 	render(props){
-
-		// console.log('tests in gameFrame render', this.state.tests)
-		return (this.state.tests === null || this.state.prompt === null || this.state.seedCode === null || this.state.algorithm === null) ? 
+		// loading screen shows until state is updated completely. 
+		return (this.state.testSuite === null || this.state.prompt === null || this.state.seedCode === null || this.state.algorithm === null) ? 
 		(<div> loading gameFrame... </div>) : 
 		(<div className="row">
-			
-		return (
 			 <div className="container">
 				<div className="row">
-
-				
 				<div className="col s9 container ">
 
 					<Prompt promptdetails={this.state.prompt} name={this.props.gameObject.name} />
@@ -119,15 +113,16 @@ export class GameFrame extends React.Component {
 					<Timer/>
 				</div>
 
-				<div className="inline-block-div"> 
-					{/*
-					<Xonsole toggleRunXonsoleStatus={this.toggleRunXonsoleStatus} isXonsoleRun={this.state.isXonsoleRun}/>
-					<RunXonsoleButton toggleRunXonsoleStatus={this.toggleRunXonsoleStatus}/>  
-				*/}
-					
+
+						<div className="inline-block-div"> 
+							{/*
+							<Xonsole toggleRunXonsoleStatus={this.toggleRunXonsoleStatus} isXonsoleRun={this.state.isXonsoleRun}/>
+							<RunXonsoleButton toggleRunXonsoleStatus={this.toggleRunXonsoleStatus}/>  
+						*/}	
+						</div>
+					</div> 
 				</div>
 			</div> 
-			</div>
 		)
 	}
 }
