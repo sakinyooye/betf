@@ -10,7 +10,9 @@ export class Prompt extends React.Component {
 render(){
 		return (
 			<div>
-				<h1>{this.props.name}</h1>
+				<blockquote>
+				<h3>{this.props.name}</h3>
+				</blockquote>
 				<div>{this.props.promptdetails}</div>
 			</div>
 		)

@@ -18,9 +18,9 @@ export class GamesList extends React.Component{
 		return (
 			<div>
 				<h5> Games </h5>
-					<ul>
+					<ul >
 						{this.props.gameslist.map(function(game){
-							return <li> <Game game={game} /></li>
+							return <li className="collapsible" data-collapible="accordion"> <Game game={game} /></li>
 						})}
 					</ul>
 			</div>
