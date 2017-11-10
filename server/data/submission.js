@@ -1,1 +1,1 @@
-module.exports.bubbleSort()=
+module.exports = var commonCharacters = (str1, str2) => str1.split(" ").join("").split("").reduce((acc, lett) => str2.includes(lett) && !acc.includes(lett) ? acc += lett : acc, "");
